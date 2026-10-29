@@ -44,15 +44,15 @@ export function AmbientSoundToggle() {
       const master = context.createGain();
       const filter = context.createBiquadFilter();
       filter.type = "lowpass";
-      filter.frequency.value = 620;
+      filter.frequency.value = 1800;
       master.gain.value = 0;
       filter.connect(master);
       master.connect(context.destination);
       const oscillators: OscillatorNode[] = [];
-      [{ frequency: 110, volume: 0.11 }, { frequency: 164.81, volume: 0.055 }, { frequency: 220, volume: 0.025 }].forEach(({ frequency, volume }) => {
+      [{ frequency: 130.81, volume: 0.32 }, { frequency: 196, volume: 0.22 }, { frequency: 261.63, volume: 0.12 }, { frequency: 329.63, volume: 0.06 }].forEach(({ frequency, volume }) => {
         const oscillator = context.createOscillator();
         const voiceGain = context.createGain();
-        oscillator.type = "sine";
+        oscillator.type = frequency === 130.81 ? "triangle" : "sine";
         oscillator.frequency.value = frequency;
         voiceGain.gain.value = volume;
         oscillator.connect(voiceGain);
@@ -60,7 +60,7 @@ export function AmbientSoundToggle() {
         oscillator.start();
         oscillators.push(oscillator);
       });
-      master.gain.setTargetAtTime(0.16, context.currentTime, 0.8);
+      master.gain.setTargetAtTime(0.55, context.currentTime, 0.25);
       await context.resume();
       graphRef.current = { context, master, oscillators };
       setUnavailable(false);
@@ -77,6 +77,6 @@ export function AmbientSoundToggle() {
       <span>{playing ? "Sonido activo" : "Activar sonido"}</span>
       <span className="ambient-sound-state" aria-hidden="true">{playing ? "Ⅱ" : "▶"}</span>
     </button>
-    <span className="ambient-sound-caption">{unavailable ? "El sonido no está disponible en este navegador" : "ATMÓSFERA ORIGINAL · OPCIONAL"}</span>
+    <span className="ambient-sound-caption">{unavailable ? "El sonido no está disponible en este navegador" : "MUESTRA SONORA · ACTIVAR / DETENER"}</span>
   </div>;
 }

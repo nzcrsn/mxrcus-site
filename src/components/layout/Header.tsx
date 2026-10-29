@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 const links = [["Audiovisual", "/coverage/"], ["Memorias", "/memorias/"], ["Sobre Marcos", "/about/"], ["Contacto", "/contact/"]] as const;
@@ -33,7 +34,7 @@ export function Header() {
     <header className="site-header" data-open={open} data-home={isHome} data-scrolled={scrolled}>
       <div className="header-bar">
         <Link href="/" className="wordmark" aria-label="Marcos Ullauri — inicio" onClick={() => setOpen(false)}>
-          <span className="wordmark-monogram">MU<span>.</span></span><span className="wordmark-caption">Historias visuales</span>
+          <Image src="/media/branding/memorias-logo.svg" alt="" width={46} height={46} className="site-logo-mark" priority /><span className="wordmark-caption">Historias visuales</span>
         </Link>
         <nav className="desktop-nav" aria-label="Navegación principal">
           {links.map(([label, href]) => <Link href={href} key={href} aria-current={pathname === href || pathname === href.slice(0, -1) ? "page" : undefined}>{label}</Link>)}
