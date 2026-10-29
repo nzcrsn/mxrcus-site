@@ -32,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="es">
       <body>
         <a className="skip-link" href="#main">Skip to content</a>
+        <div className="scroll-progress" aria-hidden="true" />
         <Header />
         {children}
         <Footer />
