@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { MediaMosaic } from "@/components/MediaMosaic";
 
 export const metadata: Metadata = {
   title: "Sobre Marcos",
@@ -27,6 +28,7 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+      <MediaMosaic eyebrow="Detrás de la cámara" title="Personas, lugares, instantes." />
     </main>
   );
 }

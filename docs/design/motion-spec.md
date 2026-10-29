@@ -94,3 +94,9 @@ Video previews must never autoplay with sound and must not introduce decorative 
 - The optional ambient sound control synthesizes a quiet original tonal bed through Web Audio. It starts only after a deliberate click, can be stopped at any time, and is never autoplayed.
 - Social follower figures in the mockup are explicitly marked as examples. Replace them with verified current numbers before launch; do not publish sample metrics as real social proof.
 - The visual archive contains four additional SVG placeholder frames. Their labels and accessible names identify them as placeholders until real photography is supplied.
+
+
+## Three-dimensional scene and horizontal sequence
+The homepage uses a lightweight Three.js scene with layered photographic planes and wireframe rings. Camera movement follows the page scroll and pointer movement is intentionally subtle. The renderer is capped at a 1.5 device-pixel ratio, has a still-image fallback, and disposes textures, geometry, and renderer resources when unmounted.
+
+The visual archive includes a horizontal filmstrip. On desktop, vertical page progress drives the horizontal track while the section remains pinned; on smaller screens, visitors can swipe the filmstrip horizontally. The effect must not trap scrolling and respects reduced-motion preferences.

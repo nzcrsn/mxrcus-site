@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CoverageCard } from "@/components/coverage/CoverageCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { coverageProjects } from "@/data/coverage";
+import { MediaMosaic } from "@/components/MediaMosaic";
 
 export const metadata: Metadata = {
   title: "Coberturas & Transmisiones | Marcos Ullauri",
@@ -25,6 +26,7 @@ export default function CoveragePage() {
           ))}
         </div>
       </section>
+      <MediaMosaic eyebrow="Fuera de cámara" title="La historia continúa entre escenas." />
     </main>
   );
 }

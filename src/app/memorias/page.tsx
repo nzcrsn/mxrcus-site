@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { MediaMosaic } from "@/components/MediaMosaic";
 
 export const metadata: Metadata = {
   title: "Memorias y Trayectorias",
@@ -28,6 +29,7 @@ export default function MemoriasPage() {
           <Reveal className="archive-media" delay={100}><Image src="/media/photography/memoria-san-miguel.jpg" alt="Imagen del proyecto documental San Miguel de Arcángel" fill sizes="(max-width: 719px) 100vw, 50vw" /></Reveal>
         </div>
       </section>
+      <MediaMosaic eyebrow="Memorias y Trayectorias" title="La memoria vive en sus imágenes." />
     </main>
   );
 }
