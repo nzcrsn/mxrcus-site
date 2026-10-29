@@ -2,92 +2,29 @@ import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { socialStats } from "@/data/social-stats";
 
-const completeStats = socialStats.filter(
-  (platform) => typeof platform.followers === "number"
-);
-const totalFollowers = completeStats.reduce(
-  (total, platform) => total + (platform.followers ?? 0),
-  0
-);
-const maxFollowers = Math.max(
-  0,
-  ...completeStats.map((platform) => platform.followers ?? 0)
-);
-const allStatsAvailable = completeStats.length === socialStats.length;
-
-function formatFollowers(value: number | null) {
-  if (value === null) return "Por actualizar";
-  return new Intl.NumberFormat("es-EC", { notation: "compact", maximumFractionDigits: 1 }).format(value);
-}
-
 export function SocialStatsShowcase() {
+  const channels = socialStats.filter((platform) => platform.profileUrl && !platform.handle.toLowerCase().includes("añadir"));
+
   return (
-    <section className="section social-community" aria-labelledby="social-heading">
-      <div className="container">
-        <div className="social-intro">
-          <Reveal>
-            <p className="eyebrow">03 / Comunidad digital</p>
-            <h2 id="social-heading">Las historias también conectan.</h2>
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="social-lede">
-              Una comunidad que crece alrededor de la cultura, las personas y las historias que compartimos.
-            </p>
-          </Reveal>
+    <section className="section social-community social-channels" aria-labelledby="social-heading">
+      <div className="container social-channels-layout">
+        <Reveal className="social-channels-intro">
+          <p className="eyebrow">04 / En otros espacios</p>
+          <h2 id="social-heading">Las historias continúan.</h2>
+          <p>Detrás de cada publicación hay personas, lugares y momentos que merecen ser compartidos. Sigue el trabajo y descubre nuevas historias.</p>
+        </Reveal>
+        <div className="social-channel-list">
+          {channels.map((platform, index) => (
+            <Reveal key={platform.name} delay={index * 90}>
+              <Link className="social-channel-link" href={platform.profileUrl!} target="_blank" rel="noreferrer" aria-label={`Visitar ${platform.name}: ${platform.handle} (se abre en una pestaña nueva)`}>
+                <span className="social-channel-index">0{index + 1}</span>
+                <span className="social-channel-name">{platform.name}</span>
+                <span className="social-channel-handle">{platform.handle}</span>
+                <span className="social-channel-arrow" aria-hidden="true">↗</span>
+              </Link>
+            </Reveal>
+          ))}
         </div>
-
-        <div className="social-total" aria-live="polite">
-          <span className="social-total-label">Comunidad total</span>
-          <strong>{allStatsAvailable ? formatFollowers(totalFollowers) : "Cifras por actualizar"}</strong>
-          <span className="social-total-note">
-            {allStatsAvailable ? "seguidores sumados entre las plataformas" : "Añade los datos reales en src/data/social-stats.ts"}
-          </span>
-        </div>
-
-        <div className="social-bars">
-          {socialStats.map((platform, index) => {
-            const followers = platform.followers;
-            const barWidth = followers !== null && maxFollowers > 0
-              ? Math.max(2, (followers / maxFollowers) * 100)
-              : 0;
-            const details = (
-              <>
-                <span className="social-platform-name">{platform.name}</span>
-                <span className="social-platform-handle">{platform.handle}</span>
-              </>
-            );
-
-            return (
-              <Reveal key={platform.name} delay={index * 90}>
-                <div className="social-stat">
-                  <div className="social-stat-heading">
-                    <div className="social-platform">
-                      {platform.profileUrl ? (
-                        <Link href={platform.profileUrl} target="_blank" rel="noreferrer" aria-label={`Abrir perfil de ${platform.name} en una pestaña nueva`}>
-                          {details}
-                        </Link>
-                      ) : (
-                        <div>{details}</div>
-                      )}
-                    </div>
-                    <strong className="social-stat-value">{formatFollowers(followers)}</strong>
-                  </div>
-                  <div
-                    className="social-stat-track"
-                    role="img"
-                    aria-label={followers === null ? `Estadística de ${platform.name} pendiente de actualizar` : `${platform.name}: ${followers} seguidores`}
-                  >
-                    <span
-                      className="social-stat-bar"
-                      style={{ "--bar-width": `${barWidth}%`, "--bar-color": platform.accent } as React.CSSProperties}
-                    />
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-        <p className="social-footnote">Las cifras se muestran como datos editoriales y deben actualizarse con los conteos reales de cada perfil.</p>
       </div>
     </section>
   );
