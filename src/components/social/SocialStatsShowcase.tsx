@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { socialStats } from "@/data/social-stats";
 
@@ -21,7 +22,7 @@ export function SocialStatsShowcase() {
               <span className="social-stat-followers">seguidores <span className="social-stat-demo-tag">EJEMPLO</span></span>
               <span className="social-stat-handle">{platform.handle}</span>
             </>;
-            const cardStyle = { "--social-accent": platform.accent } as React.CSSProperties;
+            const cardStyle = { "--social-accent": platform.accent } as CSSProperties;
             return <Reveal key={platform.name} delay={index * 100} className="social-stat-reveal">
               {platform.profileUrl ? <Link className="social-stat-card" href={platform.profileUrl} target="_blank" rel="noreferrer" style={cardStyle} aria-label={`Visitar ${platform.name}, se abre en una pestaña nueva`}>{content}</Link> : <div className="social-stat-card social-stat-card-disabled" style={cardStyle}>{content}</div>}
             </Reveal>;

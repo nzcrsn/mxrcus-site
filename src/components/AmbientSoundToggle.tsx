@@ -34,6 +34,12 @@ export function AmbientSoundToggle() {
     }
     try {
       if (stopTimerRef.current !== null) window.clearTimeout(stopTimerRef.current);
+      const previous = graphRef.current;
+      if (previous) {
+        previous.oscillators.forEach((oscillator) => { try { oscillator.stop(); } catch {} });
+        await previous.context.close();
+        graphRef.current = null;
+      }
       const context = new window.AudioContext();
       const master = context.createGain();
       const filter = context.createBiquadFilter();
