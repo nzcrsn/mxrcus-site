@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+# Next.js
+/.next/
+/out/
+/build/
+# local env files
+.env*
+!.env.example
+# operating system / editor files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+.vscode/
+.idea/
