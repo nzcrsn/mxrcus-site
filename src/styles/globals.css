@@ -1577,7 +1577,7 @@ body {
     color: var(--color-ink);
   }
 
-  .site-header[data-open="true"] {
+  .site-header[data-home="true"][data-open="true"] {
     color: var(--color-ink);
     background: var(--color-bg);
     border-bottom-color: transparent;
