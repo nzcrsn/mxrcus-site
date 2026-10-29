@@ -19,7 +19,7 @@ export default function AboutPage() {
       </header>
       <section className="section">
         <div className="container archive-feature">
-          <Reveal className="archive-media"><Image src="/images/profile.jpg" alt="Retrato de Marcos Ullauri" fill sizes="(max-width: 719px) 100vw, 50vw" /></Reveal>
+          <Reveal className="archive-media"><Image src="/media/photography/retrato-marcos.jpg" alt="Retrato de Marcos Ullauri" fill sizes="(max-width: 719px) 100vw, 50vw" /></Reveal>
           <Reveal className="archive-copy" delay={100}>
             <p className="eyebrow">Mi forma de mirar</p><h2>Contar con atención y respeto.</h2>
             <p>No busco solamente registrar un instante. Busco entenderlo, darle contexto y conservar aquello que hace que una imagen tenga algo que contar.</p>

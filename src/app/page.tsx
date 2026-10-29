@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { MediaArchive } from "@/components/MediaArchive";
 import { CoverageShowcase } from "@/components/coverage/CoverageShowcase";
 import { SocialStatsShowcase } from "@/components/social/SocialStatsShowcase";
 
@@ -20,7 +21,7 @@ export default function HomePage() {
     <main id="main">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-media"><Image src="/images/hero.jpg" alt="Marcos Ullauri" fill priority sizes="100vw" /></div>
+        <div className="hero-media"><Image src="/media/photography/hero.jpg" alt="Marcos Ullauri" fill priority sizes="100vw" /></div>
         <div className="hero-content">
           <p className="kicker">Fotografía · Audiovisual · Memoria</p>
           <h1 id="hero-title">Marcos<br />Ullauri<span className="hero-period">.</span></h1>
@@ -42,16 +43,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      <MediaArchive />
+
       <section className="section archive-home-section" aria-labelledby="archive-home-title">
         <div className="container archive-feature">
           <Reveal className="archive-copy">
-            <p className="eyebrow">02 / Archivo vivo</p>
+            <p className="eyebrow">03 / Archivo documental</p>
             <h2 id="archive-home-title">Memorias y Trayectorias</h2>
             <p>Un proyecto audiovisual que recoge las experiencias, la cultura y la memoria del noroccidente de Pichincha. Historias de personas que dejaron huella en su comunidad.</p>
             <Link className="text-link" href="/memorias/">Descubrir el proyecto</Link>
           </Reveal>
           <Reveal className="archive-media" delay={140}>
-            <Image src="/images/memoria.jpg" alt="Imagen del proyecto documental Memorias y Trayectorias" fill sizes="(max-width: 719px) 100vw, 50vw" />
+            <Image src="/media/photography/memoria-san-miguel.jpg" alt="Imagen del proyecto documental Memorias y Trayectorias" fill sizes="(max-width: 719px) 100vw, 50vw" />
             <span className="media-index" aria-hidden="true">01 — MEMORIA</span>
           </Reveal>
         </div>
@@ -62,7 +65,7 @@ export default function HomePage() {
 
       <section className="section about-home-section">
         <div className="container about-home-layout">
-          <Reveal><p className="eyebrow">05 / Detrás de la cámara</p></Reveal>
+          <Reveal><p className="eyebrow">06 / Detrás de la cámara</p></Reveal>
           <Reveal className="about-preview">
             <p>Observar con atención. Acercarse con respeto. Contar lo que merece permanecer.</p>
             <Link className="text-link" href="/about/">Conocer a Marcos</Link>
@@ -72,7 +75,7 @@ export default function HomePage() {
 
       <section className="section contact-home-section">
         <div className="container contact-cta">
-          <Reveal><p className="eyebrow">06 / Tu historia</p><h2>¿Qué merece ser contado?</h2></Reveal>
+          <Reveal><p className="eyebrow">07 / Tu historia</p><h2>¿Qué merece ser contado?</h2></Reveal>
           <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
         </div>
       </section>

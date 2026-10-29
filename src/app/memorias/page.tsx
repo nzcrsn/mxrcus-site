@@ -25,7 +25,7 @@ export default function MemoriasPage() {
             <p className="caption">Una historia alrededor del Padre Bernabé de Larraul.</p>
             <Link className="text-link" href="https://www.youtube.com/watch?v=B9bjsZKAHSM&t=42s" target="_blank" rel="noreferrer">Ver documental</Link>
           </Reveal>
-          <Reveal className="archive-media" delay={100}><Image src="/images/memoria.jpg" alt="Imagen del proyecto documental San Miguel de Arcángel" fill sizes="(max-width: 719px) 100vw, 50vw" /></Reveal>
+          <Reveal className="archive-media" delay={100}><Image src="/media/photography/memoria-san-miguel.jpg" alt="Imagen del proyecto documental San Miguel de Arcángel" fill sizes="(max-width: 719px) 100vw, 50vw" /></Reveal>
         </div>
       </section>
     </main>

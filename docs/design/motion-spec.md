@@ -81,3 +81,9 @@ Glitch, bounce, elastic motion, constant ambient movement, extreme zooming, nove
 - Reduced-motion behavior: playback remains user-controlled; no decorative transform on controls.
 
 Video previews must never autoplay with sound and must not introduce decorative motion unrelated to the footage itself.
+
+## Scroll-driven media sequence
+- The visual archive uses scroll-linked image reveals (clip and scale) as each frame enters the viewport.
+- Motion is progressive enhancement: browsers without scroll-driven animation still show every image and caption.
+- Avoid Three.js for this section unless a real 3D asset or interaction needs it; CSS view timelines deliver the intended editorial motion with lower payload and work with static export.
+- Reduced-motion preference disables scroll-linked image transforms and reveals.

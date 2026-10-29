@@ -47,3 +47,12 @@ Editorial labels, archive numbering, thin rules and restrained metadata.
 ## Audiovisual coverage visual treatment
 
 Coberturas & Transmisiones uses wide cinematic media on desktop, restrained play controls, editorial metadata and asymmetric project rhythm. It must not resemble a YouTube feed or a generic streaming dashboard. On mobile, media becomes a vertical 4:5 presentation to preserve visual impact and touch accessibility.
+
+## Media library structure
+Media files live under `public/media/`, grouped by purpose rather than a flat generic images/videos folder:
+- `photography/hero.jpg` — homepage hero.
+- `photography/retrato-marcos.jpg` — portrait on the About page.
+- `photography/memoria-san-miguel.jpg` — Memorias y Trayectorias feature.
+- `photography/frames/frame-01…04` — ordered visual archive frames.
+- `video/coberturas/` — coverage clips, named for their event/project.
+Keep original masters outside the deployable public folder when possible. Add web-ready derivatives for large photos and short, compressed muted preview videos for the static site. Never commit macOS `.DS_Store` files.
