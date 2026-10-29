@@ -1,10 +1,10 @@
 :root {
-  --color-bg: #0a0a0a;
-  --color-surface: #171717;
-  --color-text: #f5f5f5;
-  --color-text-muted: #a0a0a0;
-  --color-line: rgba(245, 245, 245, 0.16);
-  --color-accent: #c8a97e;
+  --color-bg: #f3f0e8;
+  --color-surface: #e5e0d6;
+  --color-text: #20211e;
+  --color-text-muted: #686a63;
+  --color-line: rgba(32, 33, 30, 0.18);
+  --color-accent: #a56e4b;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
