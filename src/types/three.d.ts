@@ -6,12 +6,14 @@ declare module "three" {
     x: number;
     y: number;
     z: number;
+    set(x: number, y: number, z: number): this;
   }
 
   export interface Euler {
     x: number;
     y: number;
     z: number;
+    set(x: number, y: number, z: number): this;
   }
 
   export interface RendererParameters {
