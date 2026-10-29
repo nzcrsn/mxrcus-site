@@ -2144,3 +2144,10 @@ li::marker { content: ""; }
  .page-hero-memorias { min-height: 70svh; padding-top: 7rem; }
 }
 @media (prefers-reduced-motion: reduce) { .header-bar { transition: none; } }
+
+.page-hero-image .page-hero-backdrop { object-position: center 40%; }
+.page-hero-about .page-hero-backdrop { object-position: center 30%; }
+.page-hero-contact .page-hero-backdrop { object-position: center; }
+.page-hero-coverage .page-hero-backdrop { object-position: center 45%; }
+.page-hero-stories .page-hero-backdrop { object-position: center 45%; }
+.page-hero-image::after { background: linear-gradient(90deg,rgba(14,17,14,.72),rgba(14,17,14,.2) 78%),linear-gradient(0deg,rgba(14,17,14,.68),transparent 75%); }

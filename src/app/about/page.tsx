@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main id="main">
-      <header className="page-hero">
+      <header className="page-hero page-hero-image page-hero-about">\n        <Image className="page-hero-backdrop" src="/media/photography/retrato-marcos.jpg" alt="" fill priority sizes="100vw" />
         <p className="eyebrow">Detrás de la cámara</p>
         <h1>Primero las personas. Después, la imagen.</h1>
         <p className="lede">Fotografía, creación de contenidos y narración documental. Mi trabajo parte de una idea sencilla: acercarme a las personas, observar lo que sucede y encontrar la historia que existe detrás de cada momento.</p>
