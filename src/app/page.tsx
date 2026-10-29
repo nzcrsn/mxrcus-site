@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { MediaArchive } from "@/components/MediaArchive";
+import { ScrollDepthScene } from "@/components/ScrollDepthScene";
 import { CoverageShowcase } from "@/components/coverage/CoverageShowcase";
 import { SocialStatsShowcase } from "@/components/social/SocialStatsShowcase";
 
@@ -44,6 +45,7 @@ export default function HomePage() {
       </section>
 
       <MediaArchive />
+      <ScrollDepthScene />
 
       <section className="section archive-home-section" aria-labelledby="archive-home-title">
         <div className="container archive-feature">
