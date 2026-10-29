@@ -68,6 +68,18 @@ export function ScrollDepthScene() {
       gallery.add(secondOrbit);
 
       const loader = new THREE.TextureLoader();
+      const graphic = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(0.72, 0),
+        new THREE.MeshBasicMaterial({ color: 0xffdf00, wireframe: true, transparent: true, opacity: 0.95 })
+      );
+      graphic.position.set(0, 0, 0.8);
+      gallery.add(graphic);
+      const graphicRing = new THREE.Mesh(
+        new THREE.TorusGeometry(0.92, 0.018, 6, 48),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.9 })
+      );
+      graphicRing.position.set(0, 0, 0.55);
+      gallery.add(graphicRing);
       const cards: import("three").Group[] = [];
       const positions = [
         [-2.45, 0.25, -0.9],
@@ -133,13 +145,18 @@ export function ScrollDepthScene() {
         const progress = reducedMotion.matches
           ? 0
           : Math.max(0, Math.min(1, (window.innerHeight - bounds.top) / (bounds.height + window.innerHeight)));
-        gallery.rotation.y = progress * 0.48 + pointerX * 0.055;
-        gallery.rotation.x = (progress - 0.5) * 0.06 + pointerY * 0.025;
-        gallery.position.x = -progress * 0.35;
-        camera.position.x = progress * 0.8;
-        camera.position.z = 9 - progress * 0.45;
-        camera.lookAt(progress * 0.28, 0, -0.2);
-        orbit.rotation.z = -0.35 + progress * 0.2;
+        gallery.rotation.y = progress * 1.05 + pointerX * 0.075;
+        gallery.rotation.x = (progress - 0.5) * 0.18 + pointerY * 0.035;
+        gallery.position.x = -progress * 0.75;
+        camera.position.x = progress * 1.45;
+        camera.position.y = Math.sin(progress * Math.PI) * 0.3;
+        camera.position.z = 9 - progress * 1.05;
+        camera.lookAt(progress * 0.55, 0, -0.2);
+        orbit.rotation.z = -0.35 + progress * 0.75;
+        graphic.rotation.x = progress * 1.9 + pointerY * 0.2;
+        graphic.rotation.y = progress * 2.4 + pointerX * 0.2;
+        graphicRing.rotation.z = -progress * 1.4;
+        graphicRing.rotation.x = 0.6 + progress * 0.6;
         cards.forEach((card, index) => {
           card.position.y = positions[index][1] + Math.sin(progress * Math.PI + index * 0.7) * 0.12;
         });

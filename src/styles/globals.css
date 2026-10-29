@@ -2151,3 +2151,80 @@ li::marker { content: ""; }
 .page-hero-coverage .page-hero-backdrop { object-position: center 45%; }
 .page-hero-stories .page-hero-backdrop { object-position: center 45%; }
 .page-hero-image::after { background: linear-gradient(90deg,rgba(14,17,14,.72),rgba(14,17,14,.2) 78%),linear-gradient(0deg,rgba(14,17,14,.68),transparent 75%); }
+
+
+/* Brutalist archive panel: compact, graphic-led, and deliberately not full-screen. */
+.depth-scene-section {
+  position: relative;
+  padding-block: clamp(4rem, 8vw, 8rem);
+  background: #1749d1;
+  color: #fff;
+  border-block: 2px solid #111;
+  isolation: isolate;
+}
+.depth-scene-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1.2rem;
+  border: 1px solid rgba(255,255,255,.28);
+  pointer-events: none;
+}
+.depth-scene-section::after {
+  content: "+  ×  +";
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5rem);
+  top: 1.6rem;
+  color: #ffdf00;
+  font: 800 clamp(1.3rem, 3vw, 2.5rem)/1 monospace;
+  letter-spacing: .2em;
+}
+.depth-scene-layout {
+  position: relative;
+  grid-template-columns: minmax(14rem,.68fr) minmax(0,1.32fr);
+  gap: clamp(1.5rem,5vw,5rem);
+}
+.depth-scene-copy { position: relative; z-index: 4; }
+.depth-scene-copy .eyebrow { color: #ffdf00; font-weight: 800; }
+.depth-scene-copy h2 { max-width: 8ch; font-size: clamp(3.2rem,6.3vw,6.5rem); letter-spacing: -.085em; }
+.depth-scene-copy h2 em { color: #ffdf00; }
+.depth-scene-copy > p:not(.eyebrow) { color: rgba(255,255,255,.86); }
+.depth-scene-note { font-weight: 800; color: #fff; }
+.depth-scene-note span { border-radius: 0; border-color: #ffdf00; color: #ffdf00; }
+.three-scene-stage {
+  min-height: clamp(24rem,39vw,36rem);
+  border: 2px solid #111;
+  background: #0d2d91;
+  box-shadow: 10px 10px 0 #ffdf00;
+}
+.three-scene-stage::before {
+  content: "ARCHIVE / 001—004";
+  position: absolute;
+  z-index: 4;
+  top: .8rem;
+  left: .8rem;
+  padding: .35rem .5rem;
+  background: #ffdf00;
+  color: #111;
+  font: 800 .62rem/1 monospace;
+  letter-spacing: .1em;
+}
+.three-scene-fallback img { border: 2px solid #fff; box-shadow: 8px 8px 0 rgba(0,0,0,.28); }
+.depth-scene-index { top: auto; bottom: .8rem; right: .8rem; color: #ffdf00; font-weight: 800; }
+.three-scene-status { left: .8rem; bottom: .8rem; color: #fff; font-weight: 800; }
+.horizontal-filmstrip-section { border-block: 2px solid #111; }
+.horizontal-filmstrip-heading h2 { max-width: 10ch; }
+.filmstrip-image { border: 2px solid #111; box-shadow: 6px 6px 0 #b76548; }
+.filmstrip-caption { font-family: monospace; }
+.media-mosaic-image { border: 2px solid #111; box-shadow: 5px 5px 0 #1749d1; }
+.media-mosaic-index { background: #ffdf00; color: #111; font-family: monospace; font-weight: 800; }
+@media (max-width: 719px) {
+  .depth-scene-section { padding-block: 4rem; }
+  .depth-scene-section::before { inset: .6rem; }
+  .depth-scene-layout { display: block; }
+  .depth-scene-copy h2 { max-width: 9ch; }
+  .three-scene-stage { min-height: 26rem; margin: 2rem .35rem .6rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .three-scene-fallback img { box-shadow: none; }
+}
