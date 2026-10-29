@@ -1,20 +1,39 @@
 declare module "three" {
-  export const SRGBColorSpace: any;
-  export const DoubleSide: any;
+  export const SRGBColorSpace: string;
+  export const DoubleSide: number;
+
+  export interface Vector3 {
+    x: number;
+    y: number;
+    z: number;
+  }
+
+  export interface Euler {
+    x: number;
+    y: number;
+    z: number;
+  }
+
+  export interface RendererParameters {
+    canvas?: HTMLCanvasElement;
+    alpha?: boolean;
+    antialias?: boolean;
+    powerPreference?: "high-performance" | "low-power" | "default";
+  }
 
   export class WebGLRenderer {
-    constructor(parameters?: any);
-    outputColorSpace: any;
+    constructor(parameters?: RendererParameters);
+    outputColorSpace: string;
     setPixelRatio(value: number): void;
-    setClearColor(color: any, alpha?: number): void;
+    setClearColor(color: number | string, alpha?: number): void;
     setSize(width: number, height: number, updateStyle?: boolean): void;
     render(scene: Scene, camera: PerspectiveCamera): void;
     dispose(): void;
   }
 
   export class Object3D {
-    position: any;
-    rotation: any;
+    position: Vector3;
+    rotation: Euler;
     traverse(callback: (object: Object3D) => void): void;
     add(...objects: Object3D[]): void;
     clear(): this;
@@ -36,7 +55,7 @@ declare module "three" {
   }
 
   export class AmbientLight extends Object3D {
-    constructor(color?: any, intensity?: number);
+    constructor(color?: number | string, intensity?: number);
   }
 
   export class BufferGeometry {
@@ -60,12 +79,16 @@ declare module "three" {
     dispose(): void;
   }
 
+  export interface MaterialParameters {
+    [key: string]: unknown;
+  }
+
   export class MeshBasicMaterial extends Material {
-    constructor(parameters?: any);
+    constructor(parameters?: MaterialParameters);
   }
 
   export class LineBasicMaterial extends Material {
-    constructor(parameters?: any);
+    constructor(parameters?: MaterialParameters);
   }
 
   export class Mesh extends Object3D {
@@ -82,11 +105,11 @@ declare module "three" {
 
   export class Texture {
     image: { width?: number; height?: number };
-    colorSpace: any;
+    colorSpace: string;
     dispose(): void;
   }
 
   export class TextureLoader {
-    load(url: string, onLoad: (texture: Texture) => void): Texture;
+    load(url: string, onLoad: (texture: Texture) => void): void;
   }
 }
