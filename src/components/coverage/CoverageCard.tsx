@@ -36,7 +36,6 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
           ref={videoRef}
           src={project.video}
           poster={project.poster}
-
           playsInline
           preload="metadata"
           aria-label={`${project.title} video preview`}
@@ -46,7 +45,7 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
         <button
           type="button"
           className="coverage-play"
-          aria-label={playing ? `Pause ${project.title}` : `Play ${project.title}`}
+          aria-label={playing ? `Pausar ${project.title}` : `Reproducir ${project.title}`}
           aria-pressed={playing}
           onClick={togglePlayback}
         >
