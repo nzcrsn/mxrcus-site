@@ -3,27 +3,29 @@ import { Reveal } from "@/components/ui/Reveal";
 import { socialStats } from "@/data/social-stats";
 
 export function SocialStatsShowcase() {
-  const channels = socialStats.filter((platform) => platform.profileUrl && !platform.handle.toLowerCase().includes("añadir"));
-
   return (
-    <section className="section social-community social-channels" aria-labelledby="social-heading">
+    <section className="section social-community social-channels social-stats-section" aria-labelledby="social-heading">
       <div className="container social-channels-layout">
         <Reveal className="social-channels-intro">
-          <p className="eyebrow">04 / En otros espacios</p>
+          <p className="eyebrow">05 / Comunidad digital</p>
           <h2 id="social-heading">Las historias continúan.</h2>
-          <p>Detrás de cada publicación hay personas, lugares y momentos que merecen ser compartidos. Sigue el trabajo y descubre nuevas historias.</p>
+          <p>Las historias salen del archivo y encuentran nuevas comunidades en cada plataforma.</p>
+          <span className="stats-demo-note">Cifras de muestra · reemplazar por datos reales antes de publicar</span>
         </Reveal>
-        <div className="social-channel-list">
-          {channels.map((platform, index) => (
-            <Reveal key={platform.name} delay={index * 90}>
-              <Link className="social-channel-link" href={platform.profileUrl!} target="_blank" rel="noreferrer" aria-label={`Visitar ${platform.name}: ${platform.handle} (se abre en una pestaña nueva)`}>
-                <span className="social-channel-index">0{index + 1}</span>
-                <span className="social-channel-name">{platform.name}</span>
-                <span className="social-channel-handle">{platform.handle}</span>
-                <span className="social-channel-arrow" aria-hidden="true">↗</span>
-              </Link>
-            </Reveal>
-          ))}
+        <div className="social-stats-grid">
+          {socialStats.map((platform, index) => {
+            const content = <>
+              <span className="social-stat-topline"><span>0{index + 1} / SOCIAL</span><span aria-hidden="true">↗</span></span>
+              <span className="social-stat-platform">{platform.name}</span>
+              <strong className="social-stat-count">{platform.followersLabel}</strong>
+              <span className="social-stat-followers">seguidores <span className="social-stat-demo-tag">EJEMPLO</span></span>
+              <span className="social-stat-handle">{platform.handle}</span>
+            </>;
+            const cardStyle = { "--social-accent": platform.accent } as React.CSSProperties;
+            return <Reveal key={platform.name} delay={index * 100} className="social-stat-reveal">
+              {platform.profileUrl ? <Link className="social-stat-card" href={platform.profileUrl} target="_blank" rel="noreferrer" style={cardStyle} aria-label={`Visitar ${platform.name}, se abre en una pestaña nueva`}>{content}</Link> : <div className="social-stat-card social-stat-card-disabled" style={cardStyle}>{content}</div>}
+            </Reveal>;
+          })}
         </div>
       </div>
     </section>
