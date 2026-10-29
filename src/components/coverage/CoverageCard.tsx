@@ -31,7 +31,7 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
 
   return (
     <article className={`coverage-card${featured ? " coverage-card-featured" : ""}`}>
-      <div className="coverage-media">
+      <div className="coverage-media" data-playing={playing}>
         <video
           ref={videoRef}
           src={project.video}
@@ -50,7 +50,8 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
           aria-pressed={playing}
           onClick={togglePlayback}
         >
-          <span aria-hidden="true">{playing ? "Stop" : "Play"}</span>
+          <span className={`coverage-play-icon${playing ? " is-playing" : ""}`} aria-hidden="true" />
+          <span className="visually-hidden">{playing ? "Pausar vídeo" : "Reproducir vídeo"}</span>
         </button>
         <div className="coverage-media-label" aria-hidden="true">
           <span>{project.type}</span>
