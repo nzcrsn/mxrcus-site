@@ -68,6 +68,10 @@ declare module "three" {
     constructor(width: number, height: number);
   }
 
+  export class IcosahedronGeometry extends BufferGeometry {
+    constructor(radius?: number, detail?: number);
+  }
+
   export class TorusGeometry extends BufferGeometry {
     constructor(radius: number, tube: number, radialSegments?: number, tubularSegments?: number);
   }
