@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StoryCard } from "@/components/stories/StoryCard";
 import { stories } from "@/data/stories";
 import { CoverageShowcase } from "@/components/coverage/CoverageShowcase";
+import { SocialStatsShowcase } from "@/components/social/SocialStatsShowcase";
 
 export default function HomePage() {
   const featured = stories.filter((story) => story.featured);
@@ -50,6 +51,8 @@ export default function HomePage() {
       </section> */}
 
       <CoverageShowcase />
+
+      <SocialStatsShowcase />
 
       <section className="section">
         <div className="container">
