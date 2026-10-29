@@ -29,7 +29,7 @@ export default function HomePage() {
             <Link className="text-link" href="/memorias/">Entrar al archivo</Link>
           </div>
         </div>
-        <span className="hero-index" aria-hidden="true">ECUADOR · 00°</span>
+        <span className="hero-index" aria-hidden="true">NOROCCIDENTE · ECUADOR</span>
       </section>
 
       <section className="section identity-section" aria-labelledby="identity-title">
