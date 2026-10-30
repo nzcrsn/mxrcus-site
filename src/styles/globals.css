@@ -2261,18 +2261,3 @@ li::marker { content: ""; }
 .page-hero-memorias { background: #263329; }
 .page-hero-coverage { background: #343b35; }
 .page-hero-contact { background: #282d29; }
-.archive-media-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: end;
-  padding: 1.25rem;
-  background: linear-gradient(145deg,#d9d2c3 0 48%,#a6a18e 48% 49%,#4a5145 49% 100%);
-  color: #20241f;
-}
-.archive-media-placeholder span {
-  padding: .45rem .6rem;
-  border: 1px solid currentColor;
-  font: 700 .65rem/1.2 monospace;
-  letter-spacing: .12em;
-}
