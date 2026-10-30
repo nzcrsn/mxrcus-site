@@ -49,12 +49,6 @@ export function ScrollDepthScene() {
       scene.add(ambient);
 
       const loader = new THREE.TextureLoader();
-      const graphic = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(0.72, 0),
-        new THREE.MeshBasicMaterial({ color: 0xffdf00, wireframe: true, transparent: true, opacity: 0.95 })
-      );
-      graphic.position.set(0, 0, 0.8);
-      gallery.add(graphic);
       const cards: import("three").Group[] = [];
       const positions = [
         [-2.45, 0.25, -0.9],
@@ -127,8 +121,6 @@ export function ScrollDepthScene() {
         camera.position.y = Math.sin(progress * Math.PI) * 0.3;
         camera.position.z = 9 - progress * 1.05;
         camera.lookAt(progress * 0.55, 0, -0.2);
-        graphic.rotation.x = progress * 1.9 + pointerY * 0.2;
-        graphic.rotation.y = progress * 2.4 + pointerX * 0.2;
         cards.forEach((card, index) => {
           card.position.y = positions[index][1] + Math.sin(progress * Math.PI + index * 0.7) * 0.12;
         });
