@@ -14,30 +14,36 @@ export function PinnedReveal({ children }: { children: ReactNode }) {
     const about = root?.querySelector<HTMLElement>(".about-home-section");
     if (!root || !about) return;
 
-    const context = gsap.context(() => {
-      gsap.to(about, {
-        yPercent: -100,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root,
-          start: "top top",
-          end: "+=100%",
-          scrub: 0.8,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-    }, root);
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo(
+        about,
+        { yPercent: 0 },
+        {
+          yPercent: -100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: root,
+            start: "top top",
+            end: "+=100%",
+            scrub: 0.7,
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    });
 
     const refresh = () => ScrollTrigger.refresh();
-    window.addEventListener("load", refresh, { once: true });
     const frame = window.requestAnimationFrame(refresh);
+    window.addEventListener("load", refresh, { once: true });
 
     return () => {
       window.removeEventListener("load", refresh);
       window.cancelAnimationFrame(frame);
-      context.revert();
+      media.revert();
     };
   }, []);
 
