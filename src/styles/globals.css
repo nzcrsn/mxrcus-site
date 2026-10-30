@@ -2228,3 +2228,36 @@ li::marker { content: ""; }
 @media (prefers-reduced-motion: reduce) {
   .three-scene-fallback img { box-shadow: none; }
 }
+
+
+/* Keep the navigation visible from the first frame on every route. */
+.site-header { pointer-events: none; }
+.header-bar {
+  transform: translateY(0);
+  opacity: 1;
+  background: rgba(244,240,231,.96);
+  color: var(--color-ink);
+  border-color: rgba(32,36,31,.12);
+  box-shadow: 0 8px 28px rgba(20,22,18,.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.site-header[data-scrolled="true"] .header-bar,
+.site-header[data-open="true"] .header-bar {
+  transform: translateY(0);
+  opacity: 1;
+  background: rgba(244,240,231,.98);
+  color: var(--color-ink);
+  border-color: rgba(32,36,31,.12);
+  box-shadow: 0 10px 36px rgba(20,22,18,.13);
+}
+.site-header[data-home="true"]:not([data-scrolled="true"]) .header-bar {
+  background: rgba(244,240,231,.96);
+  color: var(--color-ink);
+  border-color: rgba(32,36,31,.12);
+}
+.page-hero { background: var(--color-ink); }
+.page-hero::after { display: none; }
+.page-hero-memorias { background: #263329; }
+.page-hero-coverage { background: #343b35; }
+.page-hero-contact { background: #282d29; }
