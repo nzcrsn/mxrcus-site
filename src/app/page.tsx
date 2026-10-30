@@ -80,7 +80,7 @@ export default function HomePage() {
 
       <section className="section contact-home-section">
         <div className="container contact-cta">
-          <Reveal className="contact-cta-copy"><ScrollTextReveal as="h2" text="¿Qué merece ser contado?" /></Reveal>
+          <Reveal className="contact-cta-copy"><ScrollTextReveal as="h2" revealMode="curtain" text="¿Qué merece ser contado?" /></Reveal>
           <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
         </div>
       </section>
