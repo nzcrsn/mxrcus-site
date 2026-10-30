@@ -15,13 +15,12 @@ export function Header() {
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    let previousY = window.scrollY;
     const updateScrollState = () => {
       const currentY = window.scrollY;
       setScrolled(currentY > 36);
       setHidden(currentY > 80);
-      previousY = currentY;
     };
+    updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
