@@ -18,7 +18,7 @@ export function Header() {
     const updateScrollState = () => {
       const currentY = window.scrollY;
       setScrolled(currentY > 36);
-      setHidden(currentY > 80);
+      setHidden(false);
     };
     updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
