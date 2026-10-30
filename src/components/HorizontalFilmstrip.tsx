@@ -5,12 +5,13 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 const frames = [
-  { src: "/media/photography/frames/frame-01.png", label: "Fotograma 01", slug: "archivo-visual-01", shape: "portrait" },
-  { src: "/media/photography/frames/frame-02.jpg", label: "Fotograma 02", slug: "archivo-visual-02", shape: "landscape" },
-  { src: "/media/photography/frames/frame-03.png", label: "Fotograma 03", slug: "archivo-visual-03", shape: "portrait" },
-  { src: "/media/photography/frames/frame-04.jpg", label: "Fotograma 04", slug: "archivo-visual-04", shape: "landscape" },
-  { src: "/media/placeholders/visual-05.svg", label: "Fotograma 05", slug: "archivo-visual-01", shape: "portrait" },
-  { src: "/media/placeholders/visual-06.svg", label: "Fotograma 06", slug: "archivo-visual-02", shape: "landscape" }
+  { src: "/media/placeholders/asopvm.webp", label: "Fotograma 01", slug: "archivo-visual-01", shape: "portrait" },
+  { src: "/media/placeholders/neos.webp", label: "Fotograma 02", slug: "archivo-visual-02", shape: "portrait" },
+  { src: "/media/placeholders/beglamor.webp", label: "Fotograma 03", slug: "archivo-visual-03", shape: "portrait" },
+  { src: "/media/placeholders/asopvm.webp", label: "Fotograma 04", slug: "archivo-visual-04", shape: "portrait" },
+  { src: "/media/placeholders/expoferia.webp", label: "Fotograma 05", slug: "archivo-visual-05", shape: "landscape" },
+  { src: "/media/placeholders/zonafit.webp", label: "Fotograma 07", slug: "archivo-visual-07", shape: "portrait" },
+  { src: "/media/placeholders/disagrovet.webp", label: "Fotograma 06", slug: "archivo-visual-06", shape: "landscape" },
 ] as const;
 
 export function HorizontalFilmstrip() {
@@ -55,9 +56,9 @@ export function HorizontalFilmstrip() {
         <div className="horizontal-filmstrip-heading container">
           <div>
             <p className="eyebrow">Archivo / Secuencia</p>
-            <h2 id="filmstrip-title">Mirar más<br /><em>despacio.</em></h2>
+            <h2 id="filmstrip-title">Tu<br /><em>marca</em>, también.</h2>
           </div>
-          <p>Un recorrido por fragmentos del archivo visual.</p>
+          {/* <p>Marcas para las que he trabajado.</p> */}
         </div>
         <div ref={viewportRef} className="horizontal-filmstrip-viewport">
           <div ref={trackRef} className="horizontal-filmstrip-track">
