@@ -19,8 +19,7 @@ export function Header() {
     const updateScrollState = () => {
       const currentY = window.scrollY;
       setScrolled(currentY > 36);
-      setHidden(currentY > 120 && currentY > previousY + 2);
-      if (currentY < 36 || currentY < previousY - 2) setHidden(false);
+      setHidden(currentY > 80);
       previousY = currentY;
     };
     window.addEventListener("scroll", updateScrollState, { passive: true });
@@ -52,7 +51,6 @@ export function Header() {
         <div className="header-bar">
           <Link href="/" className="wordmark" aria-label="Marcos Ullauri — inicio" onClick={() => setOpen(false)}>
             <span className="wordmark-monogram" aria-hidden="true">m<span>u</span></span>
-            <span className="wordmark-caption">Historias visuales</span>
           </Link>
           <nav className="desktop-nav" aria-label="Navegación principal">
             {links.map(([label, href]) => (
