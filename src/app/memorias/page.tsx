@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { MediaMosaic } from "@/components/MediaMosaic";
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 export default function MemoriasPage() {
   return (
     <main id="main">
-      <header className="page-hero page-hero-memorias">\n        <Image className="page-hero-backdrop" src="/media/branding/memorias-banner.svg" alt="Memorias y Trayectorias, proyecto documental del noroccidente de Pichincha" fill priority sizes="100vw" />
+      <header className="page-hero page-hero-memorias">
         <p className="eyebrow">Archivo documental · Noroccidente de Pichincha</p>
         <h1>Memorias y Trayectorias</h1>
         <p className="lede">Un proyecto audiovisual dedicado a contar las historias, experiencias y trayectorias de las personas que forman parte de nuestra comunidad, nuestra cultura y nuestra memoria.</p>
@@ -26,7 +25,7 @@ export default function MemoriasPage() {
             <p className="caption">Una historia alrededor del Padre Bernabé de Larraul.</p>
             <Link className="text-link" href="https://www.youtube.com/watch?v=B9bjsZKAHSM&t=42s" target="_blank" rel="noreferrer">Ver documental</Link>
           </Reveal>
-          <Reveal className="archive-media" delay={100}><Image src="/media/photography/memoria-san-miguel.jpg" alt="Imagen del proyecto documental San Miguel de Arcángel" fill sizes="(max-width: 719px) 100vw, 50vw" /></Reveal>
+          <Reveal className="archive-media" delay={100}><div className="archive-media-placeholder" aria-hidden="true"><span>ARCHIVO DOCUMENTAL / 001</span></div></Reveal>
         </div>
       </section>
       <MediaMosaic eyebrow="Memorias y Trayectorias" title="La memoria vive en sus imágenes." />
