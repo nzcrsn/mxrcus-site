@@ -58,12 +58,12 @@ export default function HomePage() {
           <Reveal className="archive-copy">
             <p className="eyebrow">Archivo documental</p>
             <h2 id="archive-home-title">Memorias y Trayectorias</h2>
-            <p>Un proyecto audiovisual que recoge las experiencias, la cultura y la memoria del noroccidente de Pichincha. Historias de personas que dejaron huella en su comunidad.</p>
+            <p>Un proyecto audiovisual que recoge las experiencias, la cultura y la memoria de la gente. Historias de personas que dejaron huella en su comunidad.</p>
             <Link className="text-link" href="/memorias/">Descubrir el proyecto</Link>
           </Reveal>
           <Reveal className="archive-media" delay={140}>
-            <Image src="/media/branding/memorias-banner.svg" alt="Memorias y Trayectorias: entrevistas, documentales, transmisiones, fotografías, vídeos y noticias del noroccidente" fill unoptimized sizes="(max-width: 719px) 100vw, 50vw" />
-            <span className="media-index" aria-hidden="true">01 — MEMORIA</span>
+            <Image src="/media/branding/memorias-banner.webp" alt="Memorias y Trayectorias: entrevistas, documentales, transmisiones, fotografías, vídeos y noticias del noroccidente" fill unoptimized sizes="(max-width: 719px) 100vw, 50vw" />
+            <span className="media-index" aria-hidden="true">01 — MEMORIAS Y TRAYECTORIAS</span>
           </Reveal>
         </div>
       </section>

@@ -17,6 +17,7 @@ export function CoverageShowcase() {
           {secondary.map((project, index) => <Reveal key={project.slug} delay={index * 90}><CoverageCard project={project} /></Reveal>)}
         </div>
         <Reveal><div className="coverage-footer-link"><Link className="text-link" href="/coverage/">Ver todo el trabajo audiovisual</Link></div></Reveal>
+
       </div>
     </section>
   );

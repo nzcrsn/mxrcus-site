@@ -5,13 +5,12 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 const frames = [
-  { src: "/media/placeholders/asopvm.webp", label: "Fotograma 01", slug: "archivo-visual-01", shape: "portrait" },
-  { src: "/media/placeholders/neos.webp", label: "Fotograma 02", slug: "archivo-visual-02", shape: "portrait" },
-  { src: "/media/placeholders/beglamor.webp", label: "Fotograma 03", slug: "archivo-visual-03", shape: "portrait" },
-  { src: "/media/placeholders/asopvm.webp", label: "Fotograma 04", slug: "archivo-visual-04", shape: "portrait" },
-  { src: "/media/placeholders/expoferia.webp", label: "Fotograma 05", slug: "archivo-visual-05", shape: "landscape" },
-  { src: "/media/placeholders/zonafit.webp", label: "Fotograma 07", slug: "archivo-visual-07", shape: "portrait" },
-  { src: "/media/placeholders/disagrovet.webp", label: "Fotograma 06", slug: "archivo-visual-06", shape: "landscape" },
+  // { src: "/media/placeholders/asopvm.webp", label: "Asogan PVM", slug: "archivo-visual-01", shape: "portrait" },
+  { src: "/media/placeholders/neos.webp", label: "Neos Gastrobar", slug: "archivo-visual-02", shape: "portrait" },
+  { src: "/media/placeholders/beglamor.webp", label: "Be Glamour", slug: "archivo-visual-03", shape: "portrait" },
+  { src: "/media/placeholders/expoferia.webp", label: "Expo Asogan PVM", slug: "archivo-visual-05", shape: "landscape" },
+  { src: "/media/placeholders/zonafit.webp", label: "Zona fit PVM", slug: "archivo-visual-07", shape: "portrait" },
+  { src: "/media/placeholders/disagrovet.webp", label: "Disagrovet PVM", slug: "archivo-visual-06", shape: "landscape" },
 ] as const;
 
 export function HorizontalFilmstrip() {
@@ -68,7 +67,7 @@ export function HorizontalFilmstrip() {
                   <div className="filmstrip-image">
                     <Image src={frame.src} alt={"Imagen del archivo visual, " + frame.label} fill sizes="(max-width: 719px) 78vw, 42vw" />
                   </div>
-                  <div className="filmstrip-caption"><span>FRAME / 0{index + 1}</span><span>{frame.label}</span></div>
+                  <div className="filmstrip-caption"><span>0{index + 1}</span><span>{frame.label}</span></div>
                 </Link>
               </article>
             ))}
