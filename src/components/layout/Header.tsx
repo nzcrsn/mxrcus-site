@@ -8,14 +8,21 @@ const links = [["Audiovisual", "/coverage/"], ["Memorias", "/memorias/"], ["Sobr
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const updateScrollState = () => setScrolled(window.scrollY > 28);
-    updateScrollState();
+    let previousY = window.scrollY;
+    const updateScrollState = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 36);
+      setHidden(currentY > 120 && currentY > previousY + 2);
+      if (currentY < 36 || currentY < previousY - 2) setHidden(false);
+      previousY = currentY;
+    };
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
@@ -41,7 +48,7 @@ export function Header() {
 
   return (
     <>
-      <header className="site-header" data-open={open} data-home={isHome} data-scrolled={scrolled}>
+      <header className="site-header" data-open={open} data-home={isHome} data-scrolled={scrolled} data-hidden={hidden && !open}>
         <div className="header-bar">
           <Link href="/" className="wordmark" aria-label="Marcos Ullauri — inicio" onClick={() => setOpen(false)}>
             <span className="wordmark-monogram" aria-hidden="true">m<span>u</span></span>
