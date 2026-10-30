@@ -21,7 +21,7 @@ export function ScrollTextReveal({ text, as = "p", className = "", id }: ScrollT
   const Tag = as;
   return (
     <Tag ref={ref as never} id={id} className={"scroll-text-reveal " + (visible ? "is-revealed " : "") + className} aria-label={text}>
-      {text.split(/\\s+/).map((word, index) => (
+      {text.split(/\s+/).map((word, index) => (
         <span className="scroll-text-word" key={word + "-" + index} aria-hidden="true" style={{ "--word-index": index } as CSSProperties}><span>{word}</span></span>
       ))}
     </Tag>
