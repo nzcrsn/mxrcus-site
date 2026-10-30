@@ -3144,3 +3144,202 @@ html.lenis, html.lenis body { height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .closing-sequence .contact-home-section { will-change: auto; }
 }
+
+
+/* Transparent navigation with adaptive luminance: difference blend inverts cleanly
+   over both bright and dark photography without adding a bar or glass surface. */
+.site-header {
+  mix-blend-mode: difference !important;
+  isolation: auto !important;
+  background: transparent !important;
+}
+.site-header:not([data-open="true"]) .header-bar,
+.site-header:not([data-open="true"]) .wordmark,
+.site-header:not([data-open="true"]) .desktop-nav,
+.site-header:not([data-open="true"]) .desktop-nav a,
+.site-header:not([data-open="true"]) .menu-button {
+  color: #fff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.site-header:not([data-open="true"]) .wordmark {
+  border-color: currentColor !important;
+  filter: none !important;
+}
+.site-header:not([data-open="true"]) .menu-button {
+  border: 1px solid currentColor !important;
+  background: transparent !important;
+}
+.site-header:not([data-open="true"]) .menu-icon span {
+  background: currentColor !important;
+  box-shadow: none !important;
+}
+.site-header[data-open="true"] {
+  mix-blend-mode: normal !important;
+}
+.site-header[data-open="true"] .header-bar,
+.site-header[data-open="true"] .wordmark,
+.site-header[data-open="true"] .menu-button {
+  color: #20241f !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.site-header[data-open="true"] .wordmark { border-color: #20241f !important; }
+.site-header[data-open="true"] .menu-button { border-color: #20241f !important; }
+.site-header[data-open="true"] .menu-icon span { background: #20241f !important; }
+
+/* Official Memorias y Trayectorias banner: let its original blue identity lead,
+   balanced with the portfolio's paper, ink and muted olive tones. */
+.archive-home-section {
+  background: #e9ece8;
+  color: #172c4f;
+}
+.archive-home-section .archive-copy .eyebrow {
+  color: #1755bd;
+}
+.archive-home-section .archive-copy h2 {
+  color: #172c4f;
+  max-width: 10ch;
+  text-wrap: balance;
+}
+.archive-home-section .archive-copy > p:not(.eyebrow) {
+  color: #505c68;
+  max-width: 34rem;
+  line-height: 1.75;
+}
+.archive-home-section .archive-copy .text-link {
+  color: #174da6;
+  border-color: #174da6;
+}
+.archive-home-section .archive-media {
+  aspect-ratio: 2000 / 760 !important;
+  min-height: 15rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #073bff;
+  box-shadow: 0 22px 55px rgba(23,44,79,.16);
+}
+.archive-home-section .archive-media img {
+  object-fit: contain !important;
+  object-position: center;
+}
+.archive-home-section .archive-media .media-index {
+  display: none;
+}
+@media (max-width: 719px) {
+  .archive-home-section .archive-media {
+    aspect-ratio: 16 / 9 !important;
+    min-height: 0;
+    margin-top: 2rem;
+  }
+}
+
+/* GSAP pinned hand-off: the invitation is a stationary layer behind the moving statement.
+   ScrollTrigger pins the entire viewport-sized sequence and scrubs the top panel away. */
+.closing-sequence {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100svh;
+  min-height: 38rem;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0 !important;
+}
+.closing-sequence .about-home-section,
+.closing-sequence .contact-home-section {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100%;
+  height: 100% !important;
+  min-height: 100% !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.closing-sequence .contact-home-section {
+  z-index: 1;
+  padding-block: clamp(6rem,10vh,9rem);
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.closing-sequence .about-home-section {
+  z-index: 2;
+  padding-block: clamp(6rem,10vh,9rem);
+  background: #252a23;
+  color: #f4f0e7;
+  will-change: transform;
+}
+.closing-sequence .about-home-layout {
+  width: min(100% - (2 * var(--gutter)), 76rem);
+  margin-inline: auto;
+}
+.closing-sequence .about-preview .scroll-text-reveal {
+  display: block;
+  max-width: 15ch;
+  font-size: clamp(2.6rem,6.6vw,7rem);
+  line-height: .98;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+}
+.closing-sequence .about-preview .text-link {
+  margin-top: clamp(2rem,5vh,4rem);
+}
+.closing-sequence .contact-home-section .contact-cta {
+  width: min(100% - (2 * var(--gutter)), 90rem);
+  margin-inline: auto;
+}
+.closing-sequence .contact-home-section::before {
+  content: "TU HISTORIA";
+  top: clamp(2rem,5vh,4rem);
+  left: var(--gutter);
+  color: rgba(37,42,35,.62);
+}
+.closing-sequence .contact-cta-copy .scroll-text-reveal {
+  max-width: 11ch;
+  font-size: clamp(3.2rem,8vw,8rem) !important;
+  line-height: .92 !important;
+  font-weight: 500 !important;
+  letter-spacing: -.075em !important;
+}
+@media (max-width: 719px) {
+  .closing-sequence {
+    height: 100svh;
+    min-height: 36rem;
+  }
+  .closing-sequence .about-home-section {
+    padding-block: 6rem;
+  }
+  .closing-sequence .about-preview .scroll-text-reveal {
+    max-width: 11ch;
+    font-size: clamp(2.6rem,10vw,4.4rem);
+    line-height: 1.02;
+  }
+  .closing-sequence .contact-home-section {
+    padding-block: 6rem;
+  }
+  .closing-sequence .contact-home-section .contact-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .closing-sequence .contact-cta-copy .scroll-text-reveal {
+    font-size: clamp(2.9rem,12vw,5rem) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .closing-sequence {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+  .closing-sequence .about-home-section,
+  .closing-sequence .contact-home-section {
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+    min-height: 75svh !important;
+    transform: none !important;
+  }
+}
