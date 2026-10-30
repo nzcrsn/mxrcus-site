@@ -2384,3 +2384,96 @@ li::marker { content: ""; }
   .three-scene-stage { min-height: 27rem; margin: 2rem 0 .5rem; }
 }
 @media (prefers-reduced-motion: reduce) { .three-scene-fallback img { box-shadow: none; } }
+
+
+/* Home page: translucent glass navigation blends with the hero; content beneath is softly filtered. */
+.site-header { mix-blend-mode: normal; }
+.site-header .header-bar {
+  background: rgba(22,25,22,.18);
+  color: #fffaf2;
+  border-color: rgba(255,250,242,.25);
+  box-shadow: 0 10px 34px rgba(0,0,0,.07);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+.site-header[data-scrolled="true"] .header-bar,
+.site-header[data-open="true"] .header-bar {
+  background: rgba(244,240,231,.9);
+  color: var(--color-ink);
+  border-color: rgba(32,36,31,.13);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+}
+/* The navigation is deliberately absent once the visitor leaves the top edge. */
+.site-header[data-hidden="true"] { visibility: hidden; }
+.site-header[data-hidden="true"] .header-bar { transform: translateY(-130%); opacity: 0; pointer-events: none; }
+.site-header[data-home="true"]:not([data-scrolled="true"]) .header-bar {
+  background: rgba(22,25,22,.2);
+  color: #fffaf2;
+  border-color: rgba(255,250,242,.28);
+}
+/* Remove section eyebrow bullets/labels without removing editorial copy elsewhere. */
+.identity-section .eyebrow,
+.media-archive-sticky > .eyebrow,
+.horizontal-filmstrip-heading .eyebrow,
+.depth-scene-copy > .eyebrow,
+.archive-home-section .eyebrow,
+.coverage-section .section-heading .eyebrow,
+.social-channels-intro > .eyebrow,
+.about-home-layout > .reveal > .eyebrow,
+.contact-home-section .eyebrow { display: none !important; }
+.media-archive-stamp { display: none; }
+.media-archive-frame figcaption span:last-child { display: none; }
+.horizontal-filmstrip-footer span:first-child { display: none; }
+.depth-scene-section::before { opacity: .26; }
+.three-scene-stage::before { content: "ARCHIVO FOTOGRÁFICO"; }
+.social-stat-topline span:first-child { font-size: 0; }
+.social-stat-topline span:first-child::after { content: " "; font-size: inherit; }
+/* Word-by-word reveal, triggered when the sentence enters the viewport. */
+.scroll-text-reveal {
+  display: block;
+  overflow: hidden;
+  margin: 0;
+}
+.scroll-text-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: .24em;
+  padding-bottom: .08em;
+}
+.scroll-text-word > span {
+  display: inline-block;
+  transform: translate3d(0,115%,0);
+  opacity: .15;
+  transition: transform 760ms cubic-bezier(.2,.7,.1,1), opacity 650ms ease;
+  transition-delay: calc(var(--word-index) * 42ms);
+}
+.scroll-text-reveal.is-revealed .scroll-text-word > span {
+  transform: translate3d(0,0,0);
+  opacity: 1;
+}
+.about-preview .scroll-text-reveal {
+  max-width: 18ch;
+  font-size: clamp(2rem,5vw,5rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.contact-cta { align-items: end; }
+.contact-cta-copy { max-width: 13ch; }
+.contact-cta-copy .scroll-text-reveal {
+  font-size: var(--type-section);
+  line-height: .95;
+  letter-spacing: -.055em;
+  font-weight: 500;
+}
+.contact-cta-copy .scroll-text-word { margin-right: .2em; }
+@media (max-width: 719px) {
+  .site-header[data-hidden="true"] { visibility: hidden; }
+  .about-preview .scroll-text-reveal { font-size: clamp(2.1rem,9vw,3.5rem); }
+  .contact-cta { align-items: start; flex-direction: column; }
+  .contact-cta-copy .scroll-text-reveal { font-size: clamp(2.8rem,12vw,4.2rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-text-word > span { transform: none; opacity: 1; transition: none; }
+}

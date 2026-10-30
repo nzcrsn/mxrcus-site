@@ -15,14 +15,12 @@ export function Header() {
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    let previousY = window.scrollY;
     const updateScrollState = () => {
       const currentY = window.scrollY;
       setScrolled(currentY > 36);
-      setHidden(currentY > 120 && currentY > previousY + 2);
-      if (currentY < 36 || currentY < previousY - 2) setHidden(false);
-      previousY = currentY;
+      setHidden(currentY > 80);
     };
+    updateScrollState();
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
@@ -52,7 +50,6 @@ export function Header() {
         <div className="header-bar">
           <Link href="/" className="wordmark" aria-label="Marcos Ullauri — inicio" onClick={() => setOpen(false)}>
             <span className="wordmark-monogram" aria-hidden="true">m<span>u</span></span>
-            <span className="wordmark-caption">Historias visuales</span>
           </Link>
           <nav className="desktop-nav" aria-label="Navegación principal">
             {links.map(([label, href]) => (
