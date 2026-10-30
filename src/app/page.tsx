@@ -7,6 +7,7 @@ import { HorizontalFilmstrip } from "@/components/HorizontalFilmstrip";
 import { ScrollDepthScene } from "@/components/ScrollDepthScene";
 import { CoverageShowcase } from "@/components/coverage/CoverageShowcase";
 import { SocialStatsShowcase } from "@/components/social/SocialStatsShowcase";
+import { PinnedReveal } from "@/components/PinnedReveal";
 
 export default function HomePage() {
   const structuredData = {
@@ -59,7 +60,7 @@ export default function HomePage() {
             <Link className="text-link" href="/memorias/">Descubrir el proyecto</Link>
           </Reveal>
           <Reveal className="archive-media" delay={140}>
-            <Image src="/media/photography/memoria-san-miguel.jpg" alt="Imagen del proyecto documental Memorias y Trayectorias" fill sizes="(max-width: 719px) 100vw, 50vw" />
+            <Image src="/media/branding/memorias-banner.svg" alt="Memorias y Trayectorias: entrevistas, documentales, transmisiones, fotografías, vídeos y noticias del noroccidente" fill unoptimized sizes="(max-width: 719px) 100vw, 50vw" />
             <span className="media-index" aria-hidden="true">01 — MEMORIA</span>
           </Reveal>
         </div>
@@ -68,7 +69,7 @@ export default function HomePage() {
       <CoverageShowcase />
       <SocialStatsShowcase />
 
-      <div className="closing-sequence">
+      <PinnedReveal>
         <section className="section about-home-section">
           <div className="container about-home-layout">
             <Reveal><p className="eyebrow">Detrás de la cámara</p></Reveal>
@@ -85,7 +86,7 @@ export default function HomePage() {
             <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
           </div>
         </section>
-      </div>
+      </PinnedReveal>
     </main>
   );
 }
