@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
-type ScrollTextRevealProps = { text: string; as?: "p" | "h2"; className?: string; id?: string };
+type ScrollTextRevealProps = { text: string; as?: "p" | "h2"; className?: string; id?: string; revealMode?: "words" | "curtain" };
 
-export function ScrollTextReveal({ text, as = "p", className = "", id }: ScrollTextRevealProps) {
+export function ScrollTextReveal({ text, as = "p", className = "", id, revealMode = "words" }: ScrollTextRevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -20,7 +20,7 @@ export function ScrollTextReveal({ text, as = "p", className = "", id }: ScrollT
   }, []);
   const Tag = as;
   return (
-    <Tag ref={ref as never} id={id} className={"scroll-text-reveal " + (visible ? "is-revealed " : "") + className} aria-label={text}>
+    <Tag ref={ref as never} id={id} className={"scroll-text-reveal " + (visible ? "is-revealed " : "") + (revealMode === "curtain" ? "scroll-text-curtain " : "") + className} aria-label={text}>
       {text.split(/\s+/).map((word, index) => (
         <span className="scroll-text-word" key={word + "-" + index} aria-hidden="true" style={{ "--word-index": index } as CSSProperties}><span>{word}</span></span>
       ))}
