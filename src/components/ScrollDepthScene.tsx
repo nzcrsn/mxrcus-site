@@ -41,58 +41,28 @@ export function ScrollDepthScene() {
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-      camera.position.set(0, 0, 9);
+      camera.position.set(0, 0, 8.6);
       const gallery = new THREE.Group();
       scene.add(gallery);
 
       const ambient = new THREE.AmbientLight(0xffffff, 1.2);
       scene.add(ambient);
 
-      const orbitMaterial = new THREE.MeshBasicMaterial({
-        color: 0xb76548,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.58
-      });
-      const orbit = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.012, 8, 120), orbitMaterial);
-      orbit.rotation.set(0.9, 0.25, -0.35);
-      orbit.position.set(0.15, 0, -1.8);
-      gallery.add(orbit);
-
-      const secondOrbit = new THREE.Mesh(
-        new THREE.TorusGeometry(3.15, 0.008, 6, 120),
-        new THREE.MeshBasicMaterial({ color: 0x747b60, transparent: true, opacity: 0.8 })
-      );
-      secondOrbit.rotation.set(0.35, 1.1, 0.2);
-      secondOrbit.position.set(0, 0, -2.3);
-      gallery.add(secondOrbit);
-
       const loader = new THREE.TextureLoader();
-      const graphic = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(0.72, 0),
-        new THREE.MeshBasicMaterial({ color: 0xffdf00, wireframe: true, transparent: true, opacity: 0.95 })
-      );
-      graphic.position.set(0, 0, 0.8);
-      gallery.add(graphic);
-      const graphicRing = new THREE.Mesh(
-        new THREE.TorusGeometry(0.92, 0.018, 6, 48),
-        new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.9 })
-      );
-      graphicRing.position.set(0, 0, 0.55);
-      gallery.add(graphicRing);
       const cards: import("three").Group[] = [];
       const positions = [
-        [-2.45, 0.25, -0.9],
-        [-0.85, -0.1, 0.25],
-        [0.95, 0.25, -0.25],
-        [2.5, -0.12, -1.1]
+        [-2.65, 0.12, -0.75],
+        [-0.9, -0.18, 0.35],
+        [0.95, 0.2, 0.15],
+        [2.65, -0.08, -0.8]
       ];
 
       images.forEach((src, index) => {
         const card = new THREE.Group();
         card.position.set(positions[index][0], positions[index][1], positions[index][2]);
-        card.rotation.y = index % 2 === 0 ? -0.13 : 0.14;
-        card.rotation.z = index % 2 === 0 ? -0.035 : 0.025;
+        card.rotation.y = index % 2 === 0 ? -0.055 : 0.06;
+        card.rotation.z = index % 2 === 0 ? -0.018 : 0.014;
+        card.scale.setScalar(index === 1 || index === 2 ? 1.04 : 0.94);
         const placeholder = new THREE.Mesh(
           new THREE.PlaneGeometry(1.75, 2.3),
           new THREE.MeshBasicMaterial({ color: index % 2 === 0 ? 0x747b60 : 0xb76548 })
@@ -110,17 +80,19 @@ export function ScrollDepthScene() {
           const width = texture.image.width || 1;
           const height = texture.image.height || 1;
           const aspect = width / height;
-          const planeWidth = aspect > 1 ? 2.0 : 1.78;
+          const planeWidth = aspect > 1 ? 1.95 : 1.62;
           const planeHeight = planeWidth / aspect;
+          const frameGeometry = new THREE.PlaneGeometry(planeWidth + 0.12, planeHeight + 0.12);
+          const frame = new THREE.Mesh(
+            frameGeometry,
+            new THREE.MeshBasicMaterial({ color: 0xf4f0e7, side: THREE.DoubleSide })
+          );
           const geometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
           const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
           const photo = new THREE.Mesh(geometry, material);
-          const edge = new THREE.LineSegments(
-            new THREE.EdgesGeometry(geometry),
-            new THREE.LineBasicMaterial({ color: 0xf4f0e7, transparent: true, opacity: 0.9 })
-          );
+          photo.position.z = 0.012;
           card.clear();
-          card.add(photo, edge);
+          card.add(frame, photo);
           activeRenderer.render(scene, camera);
         });
       });
@@ -145,20 +117,15 @@ export function ScrollDepthScene() {
         const progress = reducedMotion.matches
           ? 0
           : Math.max(0, Math.min(1, (window.innerHeight - bounds.top) / (bounds.height + window.innerHeight)));
-        gallery.rotation.y = progress * 1.05 + pointerX * 0.075;
-        gallery.rotation.x = (progress - 0.5) * 0.18 + pointerY * 0.035;
-        gallery.position.x = -progress * 0.75;
-        camera.position.x = progress * 1.45;
-        camera.position.y = Math.sin(progress * Math.PI) * 0.3;
-        camera.position.z = 9 - progress * 1.05;
-        camera.lookAt(progress * 0.55, 0, -0.2);
-        orbit.rotation.z = -0.35 + progress * 0.75;
-        graphic.rotation.x = progress * 1.9 + pointerY * 0.2;
-        graphic.rotation.y = progress * 2.4 + pointerX * 0.2;
-        graphicRing.rotation.z = -progress * 1.4;
-        graphicRing.rotation.x = 0.6 + progress * 0.6;
+        gallery.rotation.y = progress * 0.28 + pointerX * 0.025;
+        gallery.rotation.x = (progress - 0.5) * 0.08 + pointerY * 0.015;
+        gallery.position.x = -progress * 0.22;
+        camera.position.x = progress * 0.32;
+        camera.position.y = Math.sin(progress * Math.PI) * 0.12;
+        camera.position.z = 8.6 - progress * 0.18;
+        camera.lookAt(progress * 0.12, 0, 0);
         cards.forEach((card, index) => {
-          card.position.y = positions[index][1] + Math.sin(progress * Math.PI + index * 0.7) * 0.12;
+          card.position.y = positions[index][1] + Math.sin(progress * Math.PI + index * 0.7) * 0.055;
         });
         activeRenderer.render(scene, camera);
       };
@@ -193,7 +160,7 @@ export function ScrollDepthScene() {
         reducedMotion.removeEventListener("change", scheduleRender);
         if (frame) window.cancelAnimationFrame(frame);
         gallery.traverse((object) => {
-          if (object instanceof THREE.Mesh || object instanceof THREE.LineSegments) {
+          if (object instanceof THREE.Mesh) {
             object.geometry.dispose();
             const materials = Array.isArray(object.material) ? object.material : [object.material];
             materials.forEach((material) => {
@@ -219,7 +186,7 @@ export function ScrollDepthScene() {
     <section className="section depth-scene-section" aria-labelledby="depth-scene-title">
       <div className="container depth-scene-layout">
         <div className="depth-scene-copy">
-          <p className="eyebrow">03 / Profundidad visual</p>
+          <p className="eyebrow">Archivo visual</p>
           <h2 id="depth-scene-title">Una historia.<br /><em>Muchas capas.</em></h2>
           <p>La fotografía no se queda quieta. Cada imagen abre otra perspectiva del lugar, las personas y la memoria.</p>
           <span className="depth-scene-note">DESPLÁZATE PARA EXPLORAR <span aria-hidden="true">↓</span></span>

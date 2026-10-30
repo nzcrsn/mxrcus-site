@@ -8,7 +8,7 @@ export function SocialStatsShowcase() {
     <section className="section social-community social-channels social-stats-section" aria-labelledby="social-heading">
       <div className="container social-channels-layout">
         <Reveal className="social-channels-intro">
-          <p className="eyebrow">05 / Comunidad digital</p>
+          <p className="eyebrow">Comunidad digital</p>
           <h2 id="social-heading">Las historias continúan.</h2>
           <p>Las historias salen del archivo y encuentran nuevas comunidades en cada plataforma.</p>
           <span className="stats-demo-note">Cifras de muestra · reemplazar por datos reales antes de publicar</span>
@@ -16,7 +16,7 @@ export function SocialStatsShowcase() {
         <div className="social-stats-grid">
           {socialStats.map((platform, index) => {
             const content = <>
-              <span className="social-stat-topline"><span>0{index + 1} / SOCIAL</span><span aria-hidden="true">↗</span></span>
+              <span className="social-stat-topline"><span>REDES SOCIALES</span><span aria-hidden="true">↗</span></span>
               <span className="social-stat-platform">{platform.name}</span>
               <strong className="social-stat-count">{platform.followersLabel}</strong>
               <span className="social-stat-followers">seguidores <span className="social-stat-demo-tag">EJEMPLO</span></span>

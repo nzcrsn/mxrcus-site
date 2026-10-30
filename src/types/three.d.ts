@@ -7,6 +7,7 @@ declare module "three" {
     y: number;
     z: number;
     set(x: number, y: number, z: number): this;
+    setScalar(value: number): this;
   }
 
   export interface Euler {
@@ -35,6 +36,7 @@ declare module "three" {
 
   export class Object3D {
     position: Vector3;
+    scale: Vector3;
     rotation: Euler;
     traverse(callback: (object: Object3D) => void): void;
     add(...objects: Object3D[]): void;
@@ -66,6 +68,10 @@ declare module "three" {
 
   export class PlaneGeometry extends BufferGeometry {
     constructor(width: number, height: number);
+  }
+
+  export class IcosahedronGeometry extends BufferGeometry {
+    constructor(radius?: number, detail?: number);
   }
 
   export class TorusGeometry extends BufferGeometry {

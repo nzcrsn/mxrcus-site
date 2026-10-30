@@ -10,7 +10,7 @@ export function CoverageShowcase() {
     <section className="section coverage-section" aria-labelledby="coverage-heading">
       <div className="container">
         <Reveal>
-          <SectionHeading eyebrow="03 / Coberturas & transmisiones" title="Historias que suceden en directo." intro="Producción en directo, cobertura de eventos y piezas audiovisuales hechas para conservar la energía de cada encuentro." id="coverage-heading" />
+          <SectionHeading eyebrow="Coberturas & transmisiones" title="Historias que suceden en directo." intro="Producción en directo, cobertura de eventos y piezas audiovisuales hechas para conservar la energía de cada encuentro." id="coverage-heading" />
         </Reveal>
         <Reveal><CoverageCard project={featured} featured /></Reveal>
         <div className="coverage-secondary-grid">
