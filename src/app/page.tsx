@@ -37,7 +37,7 @@ export default function HomePage() {
 
       <section className="section identity-section" aria-labelledby="identity-title">
         <div className="container identity-layout">
-          <Reveal><p className="eyebrow">01 / La mirada</p></Reveal>
+          <Reveal><p className="eyebrow">La mirada</p></Reveal>
           <Reveal delay={90} className="identity-copy">
             <h2 id="identity-title">No se trata solo de mirar. Se trata de <em>recordar.</em></h2>
             <p>Fotografía y narración audiovisual para acercarnos a las personas, entender los lugares y conservar las historias que construyen una comunidad.</p>
@@ -52,7 +52,7 @@ export default function HomePage() {
       <section className="section archive-home-section" aria-labelledby="archive-home-title">
         <div className="container archive-feature">
           <Reveal className="archive-copy">
-            <p className="eyebrow">03 / Archivo documental</p>
+            <p className="eyebrow">Archivo documental</p>
             <h2 id="archive-home-title">Memorias y Trayectorias</h2>
             <p>Un proyecto audiovisual que recoge las experiencias, la cultura y la memoria del noroccidente de Pichincha. Historias de personas que dejaron huella en su comunidad.</p>
             <Link className="text-link" href="/memorias/">Descubrir el proyecto</Link>
@@ -69,7 +69,7 @@ export default function HomePage() {
 
       <section className="section about-home-section">
         <div className="container about-home-layout">
-          <Reveal><p className="eyebrow">06 / Detrás de la cámara</p></Reveal>
+          <Reveal><p className="eyebrow">Detrás de la cámara</p></Reveal>
           <Reveal className="about-preview">
             <p>Observar con atención. Acercarse con respeto. Contar lo que merece permanecer.</p>
             <Link className="text-link" href="/about/">Conocer a Marcos</Link>
@@ -79,7 +79,7 @@ export default function HomePage() {
 
       <section className="section contact-home-section">
         <div className="container contact-cta">
-          <Reveal><p className="eyebrow">07 / Tu historia</p><h2>¿Qué merece ser contado?</h2></Reveal>
+          <Reveal><p className="eyebrow">Tu historia</p><h2>¿Qué merece ser contado?</h2></Reveal>
           <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
         </div>
       </section>
