@@ -48,6 +48,25 @@ export function ScrollDepthScene() {
       const ambient = new THREE.AmbientLight(0xffffff, 1.2);
       scene.add(ambient);
 
+      const orbitMaterial = new THREE.MeshBasicMaterial({
+        color: 0xb76548,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.58
+      });
+      const orbit = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.012, 8, 120), orbitMaterial);
+      orbit.rotation.set(0.9, 0.25, -0.35);
+      orbit.position.set(0.15, 0, -1.8);
+      gallery.add(orbit);
+
+      const secondOrbit = new THREE.Mesh(
+        new THREE.TorusGeometry(3.15, 0.008, 6, 120),
+        new THREE.MeshBasicMaterial({ color: 0x747b60, transparent: true, opacity: 0.8 })
+      );
+      secondOrbit.rotation.set(0.35, 1.1, 0.2);
+      secondOrbit.position.set(0, 0, -2.3);
+      gallery.add(secondOrbit);
+
       const loader = new THREE.TextureLoader();
       const graphic = new THREE.Mesh(
         new THREE.IcosahedronGeometry(0.72, 0),
@@ -55,6 +74,12 @@ export function ScrollDepthScene() {
       );
       graphic.position.set(0, 0, 0.8);
       gallery.add(graphic);
+      const graphicRing = new THREE.Mesh(
+        new THREE.TorusGeometry(0.92, 0.018, 6, 48),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.9 })
+      );
+      graphicRing.position.set(0, 0, 0.55);
+      gallery.add(graphicRing);
       const cards: import("three").Group[] = [];
       const positions = [
         [-2.45, 0.25, -0.9],
@@ -127,8 +152,11 @@ export function ScrollDepthScene() {
         camera.position.y = Math.sin(progress * Math.PI) * 0.3;
         camera.position.z = 9 - progress * 1.05;
         camera.lookAt(progress * 0.55, 0, -0.2);
+        orbit.rotation.z = -0.35 + progress * 0.75;
         graphic.rotation.x = progress * 1.9 + pointerY * 0.2;
         graphic.rotation.y = progress * 2.4 + pointerX * 0.2;
+        graphicRing.rotation.z = -progress * 1.4;
+        graphicRing.rotation.x = 0.6 + progress * 0.6;
         cards.forEach((card, index) => {
           card.position.y = positions[index][1] + Math.sin(progress * Math.PI + index * 0.7) * 0.12;
         });
