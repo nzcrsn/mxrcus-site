@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { ScrollTextReveal } from "@/components/ui/ScrollTextReveal";
 import { MediaArchive } from "@/components/MediaArchive";
 import { HorizontalFilmstrip } from "@/components/HorizontalFilmstrip";
 import { ScrollDepthScene } from "@/components/ScrollDepthScene";
@@ -37,7 +38,7 @@ export default function HomePage() {
 
       <section className="section identity-section" aria-labelledby="identity-title">
         <div className="container identity-layout">
-          <Reveal><p className="eyebrow">La mirada</p></Reveal>
+          
           <Reveal delay={90} className="identity-copy">
             <h2 id="identity-title">No se trata solo de mirar. Se trata de <em>recordar.</em></h2>
             <p>Fotografía y narración audiovisual para acercarnos a las personas, entender los lugares y conservar las historias que construyen una comunidad.</p>
@@ -71,7 +72,7 @@ export default function HomePage() {
         <div className="container about-home-layout">
           <Reveal><p className="eyebrow">Detrás de la cámara</p></Reveal>
           <Reveal className="about-preview">
-            <p>Observar con atención. Acercarse con respeto. Contar lo que merece permanecer.</p>
+            <ScrollTextReveal text="Observar con atención. Acercarse con respeto. Contar lo que merece permanecer." />
             <Link className="text-link" href="/about/">Conocer a Marcos</Link>
           </Reveal>
         </div>
@@ -79,7 +80,7 @@ export default function HomePage() {
 
       <section className="section contact-home-section">
         <div className="container contact-cta">
-          <Reveal><p className="eyebrow">Tu historia</p><h2>¿Qué merece ser contado?</h2></Reveal>
+          <Reveal className="contact-cta-copy"><ScrollTextReveal as="h2" text="¿Qué merece ser contado?" /></Reveal>
           <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
         </div>
       </section>
