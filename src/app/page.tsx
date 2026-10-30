@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { StoryCard } from "@/components/stories/StoryCard";
-import { stories } from "@/data/stories";
+import { ScrollTextReveal } from "@/components/ui/ScrollTextReveal";
+import { MediaArchive } from "@/components/MediaArchive";
+import { HorizontalFilmstrip } from "@/components/HorizontalFilmstrip";
+import { ScrollDepthScene } from "@/components/ScrollDepthScene";
 import { CoverageShowcase } from "@/components/coverage/CoverageShowcase";
+import { SocialStatsShowcase } from "@/components/social/SocialStatsShowcase";
+import { PinnedReveal } from "@/components/PinnedReveal";
 
 export default function HomePage() {
-  const featured = stories.filter((story) => story.featured);
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Marcos Ullauri",
-    jobTitle: "Fotógrafo y Creador de Historias Visuales",
+    jobTitle: "Fotógrafo y creador de historias visuales",
     sameAs: [
       "https://www.instagram.com/mxrcusvlog/",
       "https://www.facebook.com/memoriasytrayectorias"
@@ -23,76 +24,69 @@ export default function HomePage() {
   return (
     <main id="main">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-media">
-          <Image src="/images/hero.jpg" alt="Marcos Ullauri" fill priority sizes="100vw" />
-        </div>
+        <div className="hero-media"><Image src="/media/photography/hero.jpg" alt="Marcos Ullauri" fill priority sizes="100vw" /></div>
         <div className="hero-content">
-          <p className="kicker">Fotógrafo · Creador de Historias Visuales</p>
-          <h1 id="hero-title">Marcos Ullauri</h1>
+          <p className="kicker">Fotografía · Audiovisual · Memoria</p>
+          <h1 id="hero-title">Marcos<br />Ullauri<span className="hero-period">.</span></h1>
           <div className="hero-bottom">
-            <p className="hero-role">Capturando memorias para recordar.</p>
-            {/* <Link className="text-link" href="/stories/">Explorar historias</Link> */}
+            <p className="hero-role">Historias reales. Miradas que permanecen.</p>
+            <Link className="text-link" href="/memorias/">Entrar al archivo</Link>
           </div>
         </div>
+        <span className="hero-index" aria-hidden="true">NOROCCIDENTE · ECUADOR</span>
       </section>
 
-      {/* <section className="section">
-        <div className="container">
-          <Reveal><SectionHeading eyebrow="01 / Trabajos" title="Historias" intro="Una selección de historias." /></Reveal>
-          <div className="story-grid">
-            {featured.map((story, index) => (
-              <Reveal key={story.slug} delay={index * 80}><StoryCard story={story} priority={index < 2} /></Reveal>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      <CoverageShowcase />
-
-      <section className="section">
-        <div className="container">
-          <Reveal><SectionHeading eyebrow="03 / Colaboraciones" title="Conectamos marcas con nuevas audiencias" intro="Impulsando marcas y trayectorias." /></Reveal>
-          <Reveal>
-            <div className="brands" aria-label="Selected collaborators">
-              {["ASOGAN PVM", "Neos Gastrobar", "Ego", "Estación 33"].map((brand) => <div className="brand" key={brand}>{brand}</div>)}
-            </div>
+      <section className="section identity-section" aria-labelledby="identity-title">
+        <div className="container identity-layout">
+          
+          <Reveal delay={90} className="identity-copy">
+            <h2 id="identity-title">No se trata solo de mirar. Se trata de <em>recordar.</em></h2>
+            <p>Fotografía y narración audiovisual para acercarnos a las personas, entender los lugares y conservar las historias que construyen una comunidad.</p>
           </Reveal>
         </div>
       </section>
 
-      <section className="section">
+      <MediaArchive />
+      <HorizontalFilmstrip />
+      <ScrollDepthScene />
+
+      <section className="section archive-home-section" aria-labelledby="archive-home-title">
         <div className="container archive-feature">
           <Reveal className="archive-copy">
-            <p className="eyebrow">04 / Comunidad</p>
-            <h2>Memorias y Trayectorias</h2>
-            <p>Un espacio para historias que van más allá de una simple imagen: personas, comunidades, cultura y memoria.</p>
-            <Link className="text-link" href="/memorias/">Ver historias</Link>
+            <p className="eyebrow">Archivo documental</p>
+            <h2 id="archive-home-title">Memorias y Trayectorias</h2>
+            <p>Un proyecto audiovisual que recoge las experiencias, la cultura y la memoria del noroccidente de Pichincha. Historias de personas que dejaron huella en su comunidad.</p>
+            <Link className="text-link" href="/memorias/">Descubrir el proyecto</Link>
           </Reveal>
-          <Reveal className="archive-media" delay={120}>
-            <Image src="/images/story-04.jpg" alt="Abstract placeholder for Memorias y Trayectorias documentary imagery" fill sizes="(max-width: 719px) 100vw, 50vw" />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container about-preview">
-          <Reveal>
-            <p>Documento lo que permanece después del momento: gestos, lugares, trabajo, celebraciones y las personas detrás de cada historia.
-            </p>
-            <p style={{ marginTop: "2rem" }}><Link className="text-link" href="/about/">Acerca de Mxrcos</Link></p>
+          <Reveal className="archive-media" delay={140}>
+            <Image src="/media/branding/memorias-banner.svg" alt="Memorias y Trayectorias: entrevistas, documentales, transmisiones, fotografías, vídeos y noticias del noroccidente" fill unoptimized sizes="(max-width: 719px) 100vw, 50vw" />
+            <span className="media-index" aria-hidden="true">01 — MEMORIA</span>
           </Reveal>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container contact-cta">
-          <Reveal><h2>¿Tienes una historia que contar?
-          </h2></Reveal>
-          <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos de tu historia</Link></Reveal>
-        </div>
-      </section>
+      <CoverageShowcase />
+      <SocialStatsShowcase />
+
+      <PinnedReveal>
+        <section className="section about-home-section">
+          <div className="container about-home-layout">
+            <Reveal><p className="eyebrow">Detrás de la cámara</p></Reveal>
+            <Reveal className="about-preview">
+              <ScrollTextReveal text="Observar con atención. Acercarse con respeto. Contar lo que merece permanecer." />
+              <Link className="text-link" href="/about/">Conocer a Marcos</Link>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="section contact-home-section">
+          <div className="container contact-cta">
+            <Reveal className="contact-cta-copy"><ScrollTextReveal as="h2" revealMode="curtain" text="¿Qué merece ser contado?" /></Reveal>
+            <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
+          </div>
+        </section>
+      </PinnedReveal>
     </main>
   );
 }

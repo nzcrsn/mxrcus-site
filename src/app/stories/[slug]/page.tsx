@@ -32,7 +32,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
         </div>
         <div className="story-detail-copy">
           <h1>{story.title}</h1>
-          <p className="story-meta">{story.category} · {story.year}{story.location ? ` · ${story.location}` : ""}</p>
+          <p className="story-meta">{story.category}{story.year ? ` · ${story.year}` : ""}{story.location ? ` · ${story.location}` : ""}</p>
         </div>
       </header>
 

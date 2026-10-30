@@ -1,10 +1,14 @@
 :root {
-  --color-bg: #0a0a0a;
-  --color-surface: #171717;
-  --color-text: #f5f5f5;
-  --color-text-muted: #a0a0a0;
-  --color-line: rgba(245, 245, 245, 0.16);
-  --color-accent: #c8a97e;
+  /* A warm, restrained palette: paper, ink, olive and a small terracotta signal. */
+  --color-bg: #f4f0e7;
+  --color-surface: #e7e0d3;
+  --color-text: #242720;
+  --color-text-muted: #66695f;
+  --color-line: rgba(36, 39, 32, 0.18);
+  --color-accent: #b45f3d;
+  --color-olive: #7b8064;
+  --color-ink: #20241f;
+  --color-paper: #f4f0e7;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

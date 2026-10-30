@@ -54,3 +54,8 @@ Header, footer, hero, section heading, story card, story grid, metadata block, m
 - Video previews must never autoplay with sound.
 - Desktop may use a wide cinematic featured treatment; mobile becomes a vertical sequence with full-width media.
 - The global navigation includes `Coverage`.
+
+## Updated navigation and visual archive
+- The global header uses a centered editorial capsule with stable ink-on-paper contrast; it does not rely on blend modes over photography.
+- The mobile menu is a full-screen sibling overlay (not nested in the fixed header), with a visible close control, Escape-to-close, focus movement into the open menu, scroll locking, and working navigation links.
+- The homepage includes a numbered photographic archive with scroll-linked frame reveals and a restrained brutalist graphic language: hard rules, oversized type, compact indexing and a stamped accent block.

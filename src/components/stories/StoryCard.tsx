@@ -16,7 +16,7 @@ export function StoryCard({ story, priority = false }: { story: Story; priority?
           />
         </div>
         <div className="story-card-copy">
-          <p className="story-meta">{story.category} · {story.year}</p>
+          <p className="story-meta">{story.category}{story.year ? ` · ${story.year}` : ""}</p>
           <h3>{story.title}</h3>
           <p>{story.excerpt}</p>
         </div>

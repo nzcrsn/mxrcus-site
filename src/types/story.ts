@@ -1,10 +1,10 @@
-export type StoryCategory = "Documentary" | "Brand" | "Event" | "Portrait";
+export type StoryCategory = "Documentary" | "Brand" | "Event" | "Portrait" | "Archivo";
 
 export interface Story {
   slug: string;
   title: string;
   category: StoryCategory;
-  year: string;
+  year?: string;
   location?: string;
   excerpt: string;
   description: string;

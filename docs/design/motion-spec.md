@@ -81,3 +81,22 @@ Glitch, bounce, elastic motion, constant ambient movement, extreme zooming, nove
 - Reduced-motion behavior: playback remains user-controlled; no decorative transform on controls.
 
 Video previews must never autoplay with sound and must not introduce decorative motion unrelated to the footage itself.
+
+## Scroll-driven media sequence
+- The visual archive uses scroll-linked image reveals (clip and scale) as each frame enters the viewport.
+- Motion is progressive enhancement: browsers without scroll-driven animation still show every image and caption.
+- Avoid Three.js for this section unless a real 3D asset or interaction needs it; CSS view timelines deliver the intended editorial motion with lower payload and work with static export.
+- Reduced-motion preference disables scroll-linked image transforms and reveals.
+
+
+## Layered depth and optional sound
+- A scroll-linked CSS 3D composition uses two image planes, perspective, and layered transforms. It is progressive enhancement and does not require WebGL or a Three.js runtime.
+- The optional ambient sound control synthesizes a quiet original tonal bed through Web Audio. It starts only after a deliberate click, can be stopped at any time, and is never autoplayed.
+- Social follower figures in the mockup are explicitly marked as examples. Replace them with verified current numbers before launch; do not publish sample metrics as real social proof.
+- The visual archive contains four additional SVG placeholder frames. Their labels and accessible names identify them as placeholders until real photography is supplied.
+
+
+## Three-dimensional scene and horizontal sequence
+The homepage uses a lightweight Three.js scene with layered photographic planes and wireframe rings. Camera movement follows the page scroll and pointer movement is intentionally subtle. The renderer is capped at a 1.5 device-pixel ratio, has a still-image fallback, and disposes textures, geometry, and renderer resources when unmounted.
+
+The visual archive includes a horizontal filmstrip. On desktop, vertical page progress drives the horizontal track while the section remains pinned; on smaller screens, visitors can swipe the filmstrip horizontally. The effect must not trap scrolling and respects reduced-motion preferences.
