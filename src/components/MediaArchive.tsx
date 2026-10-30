@@ -14,11 +14,11 @@ export function MediaArchive() {
   return <section className="section media-archive-section" aria-labelledby="media-archive-title">
     <div className="container media-archive-layout">
       <div className="media-archive-sticky">
-        <p className="eyebrow">02 / Archivo visual</p>
+        <p className="eyebrow">Archivo visual</p>
         <h2 id="media-archive-title">La historia también vive en los <em>detalles.</em></h2>
         <p>Una selección abierta de imágenes, lugares y momentos que construyen una memoria compartida.</p>
         <div className="media-archive-stamp" aria-label="Archivo visual de Marcos Ullauri"><span>MU</span><span>FOTOGRAFÍA<br />EN MOVIMIENTO</span></div>
-        <span className="media-archive-index">FOTOGRAFÍA / 001—008</span>
+        
       </div>
       <div className="media-archive-grid">
         {frames.map((frame, index) => <Reveal key={frame.number} className={`media-archive-frame media-archive-frame-${frame.number}`} delay={(index % 4) * 65}>
