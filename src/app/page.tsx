@@ -68,22 +68,24 @@ export default function HomePage() {
       <CoverageShowcase />
       <SocialStatsShowcase />
 
-      <section className="section about-home-section">
-        <div className="container about-home-layout">
-          <Reveal><p className="eyebrow">Detrás de la cámara</p></Reveal>
-          <Reveal className="about-preview">
-            <ScrollTextReveal text="Observar con atención. Acercarse con respeto. Contar lo que merece permanecer." />
-            <Link className="text-link" href="/about/">Conocer a Marcos</Link>
-          </Reveal>
-        </div>
-      </section>
+      <div className="closing-sequence">
+        <section className="section about-home-section">
+          <div className="container about-home-layout">
+            <Reveal><p className="eyebrow">Detrás de la cámara</p></Reveal>
+            <Reveal className="about-preview">
+              <ScrollTextReveal text="Observar con atención. Acercarse con respeto. Contar lo que merece permanecer." />
+              <Link className="text-link" href="/about/">Conocer a Marcos</Link>
+            </Reveal>
+          </div>
+        </section>
 
-      <section className="section contact-home-section">
-        <div className="container contact-cta">
-          <Reveal className="contact-cta-copy"><ScrollTextReveal as="h2" revealMode="curtain" text="¿Qué merece ser contado?" /></Reveal>
-          <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
-        </div>
-      </section>
+        <section className="section contact-home-section">
+          <div className="container contact-cta">
+            <Reveal className="contact-cta-copy"><ScrollTextReveal as="h2" revealMode="curtain" text="¿Qué merece ser contado?" /></Reveal>
+            <Reveal delay={100}><Link className="text-link" href="/contact/">Hablemos</Link></Reveal>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
