@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { AmbientSoundToggle } from "@/components/AmbientSoundToggle";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "@/styles/globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -20,5 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body><a className="skip-link" href="#main">Saltar al contenido</a><div className="scroll-progress" aria-hidden="true" /><Header /><AmbientSoundToggle />{children}<Footer /></body></html>;
+  return <html lang="es"><body><a className="skip-link" href="#main">Saltar al contenido</a><div className="scroll-progress" aria-hidden="true" /><Header /><SmoothScroll /><AmbientSoundToggle />{children}<Footer /></body></html>;
 }

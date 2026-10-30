@@ -2834,3 +2834,111 @@ li::marker { content: ""; }
 @media (prefers-reduced-motion: reduce) {
   .contact-cta-copy::after { transition: none !important; transform: scaleY(0) !important; }
 }
+
+
+/* Lenis: retain native document scrolling and native sticky positioning. */
+html { scroll-behavior: auto !important; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+/* Layered closing sequence: the invitation waits underneath the moving statement. */
+.closing-sequence {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  display: flow-root;
+}
+.closing-sequence .about-home-section {
+  position: relative;
+  z-index: 2;
+  min-height: 160svh;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(7rem,12vh,11rem);
+  background: #252a23;
+  color: #f4f0e7;
+}
+.closing-sequence .about-home-layout {
+  position: relative;
+  z-index: 2;
+  width: min(100% - (2 * var(--gutter)), 76rem);
+}
+.closing-sequence .about-preview {
+  max-width: 68rem;
+}
+.closing-sequence .about-preview .scroll-text-reveal {
+  max-width: 17ch;
+  font-size: clamp(2.4rem,6.3vw,6.8rem);
+  line-height: .98;
+  letter-spacing: -.065em;
+}
+.closing-sequence .about-preview .text-link {
+  margin-top: clamp(2rem,5vh,4rem);
+}
+.closing-sequence .contact-home-section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  min-height: 100svh;
+  margin-top: -100svh;
+  margin-bottom: 0;
+  padding-block: clamp(7rem,12vh,11rem);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: clamp(1.25rem,3vw,2.5rem) clamp(1.25rem,3vw,2.5rem) 0 0;
+  background: #e9e5da !important;
+  color: #252a23 !important;
+  box-shadow: 0 -18px 55px rgba(0,0,0,.12);
+}
+.closing-sequence .contact-home-section::before {
+  content: "UNA HISTORIA COMIENZA CON UNA CONVERSACIÓN";
+  color: rgba(37,42,35,.58);
+}
+.closing-sequence .contact-home-section .contact-cta {
+  width: 100%;
+  align-items: end;
+}
+.closing-sequence .contact-cta-copy {
+  max-width: 15ch;
+  color: #252a23 !important;
+}
+.closing-sequence .contact-cta-copy .scroll-text-reveal {
+  max-width: 12ch;
+  font-size: clamp(3.2rem,8vw,8rem) !important;
+  line-height: .92 !important;
+  font-weight: 500 !important;
+  letter-spacing: -.075em !important;
+  text-transform: none !important;
+}
+.closing-sequence .contact-cta-copy::after {
+  background: #e9e5da !important;
+}
+@media (max-width: 719px) {
+  .closing-sequence .about-home-section {
+    min-height: 145svh;
+    padding-block: 6rem;
+  }
+  .closing-sequence .about-preview .scroll-text-reveal {
+    font-size: clamp(2.45rem,10vw,4.3rem);
+    line-height: 1.02;
+  }
+  .closing-sequence .contact-home-section {
+    min-height: 100svh;
+    margin-top: -100svh;
+    padding-block: 6rem;
+  }
+  .closing-sequence .contact-home-section .contact-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .closing-sequence .contact-cta-copy .scroll-text-reveal {
+    font-size: clamp(2.9rem,12vw,5rem) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
