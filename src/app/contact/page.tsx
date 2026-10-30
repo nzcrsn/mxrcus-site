@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MediaMosaic } from "@/components/MediaMosaic";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main id="main">
-      <header className="page-hero page-hero-contact">
+      <header className="page-hero page-hero-image page-hero-contact">\n        <Image className="page-hero-backdrop" src="/media/photography/frames/frame-02.jpg" alt="" fill priority sizes="100vw" />
         <h1>Hablemos de lo que quieres contar.</h1>
         <p className="lede">Una conversación puede ser el comienzo de una historia. Cuéntame qué quieres documentar y exploremos juntos cómo contarla.</p>
       </header>
