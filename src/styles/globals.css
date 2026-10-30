@@ -2942,3 +2942,205 @@ html.lenis, html.lenis body { height: auto; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 }
+
+
+/* Contrast-first transparent navigation: no surface, but a clear dark edge around every label. */
+.site-header {
+  mix-blend-mode: normal !important;
+  isolation: auto !important;
+  background: transparent !important;
+}
+.site-header .header-bar {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #fffaf2 !important;
+}
+.site-header .wordmark,
+.site-header .desktop-nav,
+.site-header .desktop-nav a,
+.site-header .menu-button {
+  color: #fffaf2 !important;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.98),
+    0 2px 8px rgba(0,0,0,.88),
+    0 0 18px rgba(0,0,0,.62) !important;
+  -webkit-text-stroke: .2px rgba(0,0,0,.75);
+}
+.site-header .wordmark {
+  border-color: rgba(255,250,242,.9) !important;
+  filter: drop-shadow(0 1px 5px rgba(0,0,0,.85));
+}
+.site-header .menu-button {
+  background: transparent !important;
+  border: 1px solid rgba(255,250,242,.9) !important;
+  border-radius: 999px !important;
+}
+.site-header .menu-icon span { background: #fffaf2 !important; box-shadow: 0 1px 4px #000; }
+.site-header[data-open="true"] { mix-blend-mode: normal !important; }
+.site-header[data-open="true"] .header-bar { color: #20241f !important; }
+.site-header[data-open="true"] .wordmark,
+.site-header[data-open="true"] .desktop-nav,
+.site-header[data-open="true"] .menu-button {
+  color: #20241f !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+.site-header[data-open="true"] .menu-button { border-color: #20241f !important; }
+.site-header[data-open="true"] .menu-icon span { background: #20241f !important; box-shadow: none; }
+
+/* Festival feature: keep the video cinematic, but controlled on wide desktop and tablet screens. */
+.coverage-card-featured .coverage-media {
+  width: min(100%, 68rem);
+  max-height: 34rem;
+  margin-inline: auto;
+  aspect-ratio: 16 / 8.2;
+  border: 1px solid rgba(244,240,231,.2);
+  border-radius: 1.15rem;
+  overflow: hidden;
+  background: #1b201b;
+  box-shadow: 0 22px 60px rgba(0,0,0,.24);
+}
+.coverage-media,
+.coverage-secondary-grid .coverage-media {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(244,240,231,.16);
+}
+.coverage-media video {
+  border-radius: inherit;
+  object-fit: cover;
+}
+.coverage-card-featured .coverage-copy {
+  width: min(100%, 68rem);
+  margin-inline: auto;
+  padding-top: .5rem;
+}
+.coverage-section .section-heading {
+  margin-bottom: clamp(2.5rem,5vw,4.5rem);
+}
+.coverage-section .section-heading h2 {
+  color: #fffaf2;
+  text-wrap: balance;
+}
+.coverage-section .section-heading .section-intro {
+  color: #d4d2c7 !important;
+  line-height: 1.75;
+}
+.coverage-copy .story-meta {
+  color: #c9c8bd !important;
+}
+.coverage-copy h3 {
+  color: #fffaf2 !important;
+}
+.coverage-details,
+.coverage-details p {
+  color: #deddd4 !important;
+  line-height: 1.75;
+}
+.coverage-role {
+  color: #bfc4b7 !important;
+  border-color: rgba(244,240,231,.24) !important;
+}
+.coverage-media-label {
+  color: #fffaf2 !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.85);
+}
+.coverage-play {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,250,242,.9);
+  background: rgba(17,21,17,.68);
+  backdrop-filter: blur(10px);
+}
+.coverage-play:hover,
+.coverage-play:focus-visible {
+  background: #f4f0e7;
+  color: #20241f;
+  transform: scale(1.06);
+}
+.coverage-card-featured { margin-bottom: clamp(3rem,6vw,5rem); }
+.coverage-secondary-grid { gap: clamp(2rem,4vw,4rem); }
+.coverage-secondary-grid .coverage-card {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(244,240,231,.2);
+}
+.coverage-secondary-grid .coverage-copy h3 {
+  font-size: clamp(1.8rem,3vw,3rem);
+}
+@media (min-width: 720px) {
+  .coverage-card-featured .coverage-media {
+    width: min(100%, 62rem);
+    max-height: 31rem;
+    aspect-ratio: 16 / 8;
+  }
+}
+@media (min-width: 1200px) {
+  .coverage-card-featured .coverage-media {
+    width: min(100%, 66rem);
+    max-height: 33rem;
+    aspect-ratio: 16 / 7.8;
+  }
+}
+@media (max-width: 719px) {
+  .coverage-card-featured .coverage-media {
+    width: 100%;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+    border-radius: .85rem;
+  }
+  .coverage-media,
+  .coverage-secondary-grid .coverage-media { border-radius: .85rem; }
+}
+
+/* Correct sticky stacking: extend the parent past the overlap so the lower panel has a real sticky range. */
+.closing-sequence {
+  padding-bottom: 100svh;
+}
+.closing-sequence .about-home-section {
+  position: relative;
+  z-index: 2;
+  min-height: 160svh;
+  isolation: isolate;
+}
+.closing-sequence .about-home-section .about-home-layout {
+  position: relative;
+  z-index: 2;
+}
+.closing-sequence .contact-home-section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-top: -100svh;
+  min-height: 100svh;
+  height: 100svh;
+  align-self: start;
+  will-change: transform;
+}
+.closing-sequence .contact-home-section::before {
+  content: "TU HISTORIA";
+  color: rgba(37,42,35,.62);
+}
+.closing-sequence .contact-home-section .contact-cta-copy {
+  position: relative;
+  z-index: 2;
+}
+.closing-sequence .contact-home-section .contact-cta-copy::after {
+  pointer-events: none;
+}
+@media (max-width: 719px) {
+  .closing-sequence { padding-bottom: 100svh; }
+  .closing-sequence .about-home-section { min-height: 145svh; }
+  .closing-sequence .contact-home-section {
+    height: 100svh;
+    min-height: 100svh;
+    margin-top: -100svh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .closing-sequence .contact-home-section { will-change: auto; }
+}
