@@ -21,23 +21,26 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
   };
 
   return (
-    <article className={`coverage-card${featured ? " coverage-card-featured" : ""}`}>
-      <div className="coverage-media">
+    <article className={`coverage-card editorial-coverage-card${featured ? " coverage-card-featured" : ""}`}>
+      <div className="coverage-media editorial-coverage-media">
         <video ref={videoRef} src={project.video} poster={project.poster} playsInline muted loop preload="metadata" aria-label={`Vista previa: ${project.title}`} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} />
-        <span className="coverage-media-label"><span>{project.type}</span><span>{project.year} · {project.location}</span></span>
+        <span className="coverage-media-label">
+          <span>{project.type}</span>
+          <span>{project.year} <i aria-hidden="true">·</i> {project.location}</span>
+        </span>
         <button type="button" className="coverage-play" aria-label={playing ? `Pausar ${project.title}` : `Reproducir ${project.title}`} aria-pressed={playing} onClick={togglePlayback}>
           <span className={`coverage-play-icon${playing ? " is-playing" : ""}`} aria-hidden="true" />
           <span className="visually-hidden">{playing ? "Pausar vídeo" : "Reproducir vídeo"}</span>
         </button>
       </div>
-      <div className="coverage-copy">
-        <div>
+      <div className="coverage-copy editorial-coverage-copy">
+        <div className="coverage-title-block">
           <p className="story-meta">{project.client}</p>
           <h3>{project.title}</h3>
         </div>
         <div className="coverage-details">
           <p>{project.description}</p>
-          {project.role ? <p className="coverage-role">{project.role}</p> : null}
+          {project.role ? <p className="coverage-role"><span>Realización</span>{project.role}</p> : null}
         </div>
       </div>
     </article>
