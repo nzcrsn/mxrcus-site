@@ -2,8 +2,8 @@
 
 import { useRef, useState } from "react";
 
-// Replace this placeholder with the path to the single MP3 uploaded for this page.
-const AUDIO_SRC = "/media/audio/REEMPLAZAR-POR-TU-ARCHIVO.mp3";
+// Add your uploaded MP3 path here when it is ready.
+const AUDIO_SRC = "";
 
 export function CoverageAudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -11,7 +11,7 @@ export function CoverageAudioPlayer() {
 
   const togglePlayback = async () => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || !AUDIO_SRC) return;
     if (audio.paused) {
       try { await audio.play(); setPlaying(true); } catch { setPlaying(false); }
     } else {
@@ -22,11 +22,14 @@ export function CoverageAudioPlayer() {
 
   return (
     <div className="coverage-audio">
-      <audio ref={audioRef} src={AUDIO_SRC} preload="none" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} />
-      <span className="coverage-audio-label">Banda sonora · Memorias y Trayectorias</span>
-      <button className="coverage-audio-button" type="button" onClick={togglePlayback} aria-pressed={playing}>
+      {AUDIO_SRC ? <audio ref={audioRef} src={AUDIO_SRC} preload="none" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} /> : null}
+      <div className="coverage-audio-copy">
+        <span className="coverage-audio-label">Paisaje sonoro</span>
+        <span className="coverage-audio-note">Una pieza musical para acompañar este recorrido por el archivo.</span>
+      </div>
+      <button className="coverage-audio-button" type="button" onClick={togglePlayback} disabled={!AUDIO_SRC} aria-pressed={playing} aria-label={playing ? "Pausar música" : "Reproducir música"}>
         <span aria-hidden="true">{playing ? "Ⅱ" : "▶"}</span>
-        {playing ? "Pausar" : "Escuchar"}
+        {playing ? "Pausar" : "Audio próximamente"}
       </button>
     </div>
   );
