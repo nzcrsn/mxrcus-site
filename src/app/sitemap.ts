@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 const baseUrl = "https://mxrcos.pages.dev";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/coverage/", "/memorias/", "/about/", "/contact/"].map((route) => ({
+  const routes = ["", "/memorias/", "/about/", "/contact/"].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
