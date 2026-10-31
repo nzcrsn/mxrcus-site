@@ -7,12 +7,7 @@ type CoverageCardProps = { project: CoverageProject; featured?: boolean };
 
 export function CoverageCard({ project, featured = false }: CoverageCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [audioPlaying, setAudioPlaying] = useState(false);
-  // Drop an MP3 at public/media/audio/<project.slug>.mp3. No extra wiring is needed.
-  const audioSrc = project.audio ?? `/media/audio/${project.slug}.mp3`;
-
   const togglePlayback = async () => {
     const video = videoRef.current;
     if (!video) return;
@@ -21,17 +16,6 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
     } else {
       video.pause();
       setPlaying(false);
-    }
-  };
-
-  const toggleAudio = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (audio.paused) {
-      try { await audio.play(); setAudioPlaying(true); } catch { setAudioPlaying(false); }
-    } else {
-      audio.pause();
-      setAudioPlaying(false);
     }
   };
 
@@ -52,14 +36,6 @@ export function CoverageCard({ project, featured = false }: CoverageCardProps) {
         <div className="coverage-details">
           <p>{project.description}</p>
           {project.role ? <p className="coverage-role">{project.role}</p> : null}
-          <div className="coverage-audio-control">
-            <audio ref={audioRef} src={audioSrc} preload="none" onPlay={() => setAudioPlaying(true)} onPause={() => setAudioPlaying(false)} onEnded={() => setAudioPlaying(false)} />
-            <button type="button" className="coverage-audio-button" onClick={toggleAudio} aria-pressed={audioPlaying}>
-              <span aria-hidden="true">{audioPlaying ? "Ⅱ" : "▶"}</span>
-              {audioPlaying ? "Pausar audio" : "Escuchar audio"}
-            </button>
-            <span className="coverage-audio-caption">Registro sonoro</span>
-          </div>
         </div>
       </div>
     </article>
