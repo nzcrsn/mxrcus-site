@@ -3343,3 +3343,88 @@ html.lenis, html.lenis body { height: auto; }
     transform: none !important;
   }
 }
+
+
+/* Memorias y Trayectorias: one continuous paper-and-blue visual language for every archive item. */
+.coverage-section {
+  background: #e9ece8;
+  color: #172c4f;
+  overflow: hidden;
+}
+.coverage-section .section-heading h2 { color: #172c4f !important; }
+.coverage-section .section-heading .eyebrow { color: #1755bd; }
+.coverage-section .section-heading .section-intro {
+  color: #505c68 !important;
+  line-height: 1.75;
+}
+.coverage-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, .75fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4.5rem);
+  padding: clamp(1rem, 2vw, 2rem);
+  margin: 0 0 clamp(3rem, 7vw, 6rem);
+}
+.coverage-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 12% 0 0 12%;
+  background: #d8dfdc;
+  border: 1px solid rgba(23,44,79,.12);
+}
+.coverage-card-frame {
+  position: relative;
+  padding: 0 1.25rem 1.25rem 0;
+}
+.coverage-card-frame::before {
+  content: "";
+  position: absolute;
+  inset: 1.1rem -1.1rem -1.1rem 1.1rem;
+  border: 1px solid rgba(23,44,79,.35);
+  background: #174da6;
+}
+.coverage-media {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 7px solid #f4f3ec;
+  border-radius: 3px;
+  background: #172c4f;
+  box-shadow: 0 18px 45px rgba(23,44,79,.18);
+}
+.coverage-media video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.coverage-copy { position: relative; z-index: 1; padding: clamp(1rem,2vw,2rem) 0; }
+.coverage-copy .story-meta { color: #52647c !important; }
+.coverage-copy h3 { margin: 0; color: #172c4f !important; font-size: clamp(2rem,3.7vw,4rem); line-height: .96; letter-spacing: -.055em; }
+.coverage-details, .coverage-details p { color: #505c68 !important; line-height: 1.7; }
+.coverage-role { color: #174da6 !important; border-color: rgba(23,44,79,.22) !important; }
+.coverage-media-label { color: #fff !important; text-shadow: 0 2px 12px rgba(0,0,0,.85); }
+.coverage-play { width: 3.8rem; height: 3.8rem; border: 1px solid #fff; border-radius: 50%; background: rgba(23,44,79,.76); color: #fff; backdrop-filter: blur(8px); }
+.coverage-play:hover, .coverage-play:focus-visible { background: #f4f0e7; color: #172c4f; }
+.coverage-audio-control { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+.coverage-audio-control audio { display: none; }
+.coverage-audio-button { display: inline-flex; align-items: center; gap: .65rem; padding: .7rem 1rem; border: 1px solid #174da6; border-radius: 999px; background: transparent; color: #174da6; cursor: pointer; font-size: .85rem; }
+.coverage-audio-button:hover { background: #174da6; color: #fff; }
+.coverage-audio-caption { color: #647184; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+.coverage-secondary-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(1.5rem,4vw,3.5rem); }
+.coverage-secondary-grid .coverage-card { display: block; padding: 1rem; margin: 0; }
+.coverage-secondary-grid .coverage-card::before { inset: 12% 0 0 12%; }
+.coverage-secondary-grid .coverage-card-frame { padding: 0 .8rem .8rem 0; }
+.coverage-secondary-grid .coverage-card-frame::before { inset: .8rem -.8rem -.8rem .8rem; }
+.coverage-secondary-grid .coverage-media { aspect-ratio: 4 / 3; }
+.coverage-secondary-grid .coverage-copy { padding: 1.5rem .25rem .5rem; }
+.coverage-secondary-grid .coverage-copy h3 { font-size: clamp(1.8rem,3vw,3rem); }
+.coverage-footer-link .text-link { color: #174da6; }
+@media (max-width: 719px) {
+  .coverage-card { display: block; padding: .5rem; margin-bottom: 3rem; }
+  .coverage-card::before { inset: 10% 0 0 8%; }
+  .coverage-card-frame { padding: 0 .75rem .75rem 0; }
+  .coverage-card-frame::before { inset: .7rem -.7rem -.7rem .7rem; }
+  .coverage-media { aspect-ratio: 4 / 3; border-width: 4px; }
+  .coverage-copy { padding: 1.5rem .35rem .75rem; }
+  .coverage-secondary-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
