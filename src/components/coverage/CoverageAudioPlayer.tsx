@@ -2,6 +2,9 @@
 
 import { useRef, useState } from "react";
 
+// Replace this placeholder with the path to the single MP3 uploaded for this page.
+const AUDIO_SRC = "/media/audio/REEMPLAZAR-POR-TU-ARCHIVO.mp3";
+
 export function CoverageAudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -10,12 +13,7 @@ export function CoverageAudioPlayer() {
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) {
-      try {
-        await audio.play();
-        setPlaying(true);
-      } catch {
-        setPlaying(false);
-      }
+      try { await audio.play(); setPlaying(true); } catch { setPlaying(false); }
     } else {
       audio.pause();
       setPlaying(false);
@@ -23,17 +21,13 @@ export function CoverageAudioPlayer() {
   };
 
   return (
-    <aside className="coverage-audio" aria-label="Banda sonora de Memorias y Trayectorias">
-      <div className="coverage-audio-copy">
-        <p className="eyebrow">Escucha el archivo</p>
-        <h3>Una memoria también se escucha.</h3>
-        <p>Una pieza sonora que acompaña este recorrido por las historias y coberturas de nuestra comunidad.</p>
-      </div>
-      <audio ref={audioRef} src="/media/audio/memorias-y-trayectorias.mp3" preload="none" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} />
+    <div className="coverage-audio">
+      <audio ref={audioRef} src={AUDIO_SRC} preload="none" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} />
+      <span className="coverage-audio-label">Banda sonora · Memorias y Trayectorias</span>
       <button className="coverage-audio-button" type="button" onClick={togglePlayback} aria-pressed={playing}>
         <span aria-hidden="true">{playing ? "Ⅱ" : "▶"}</span>
-        {playing ? "Pausar audio" : "Reproducir audio"}
+        {playing ? "Pausar" : "Escuchar"}
       </button>
-    </aside>
+    </div>
   );
 }
