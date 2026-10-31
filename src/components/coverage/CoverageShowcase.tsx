@@ -5,25 +5,30 @@ import { CoverageAudioPlayer } from "@/components/coverage/CoverageAudioPlayer";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function CoverageShowcase({ showArchiveLink = true }: { showArchiveLink?: boolean }) {
+  const [featured, ...secondary] = coverageProjects;
+
   return (
     <div className="coverage-section" aria-labelledby="coverage-heading">
       <div className="coverage-transition">
         <Reveal>
           <p className="eyebrow">El archivo continúa</p>
-          <h3 id="coverage-heading">Hay historias que también se cuentan en movimiento.</h3>
+          <h3 id="coverage-heading">También hay historias que merecen ser vistas en movimiento.</h3>
         </Reveal>
         <Reveal delay={100}>
-          <p className="coverage-intro">Además de las fotografías, este archivo reúne coberturas, encuentros y transmisiones que documentan la vida cultural y comunitaria del noroccidente. Cada registro conserva algo de lo que vivimos y compartimos.</p>
+          <p className="coverage-intro">Coberturas, encuentros y transmisiones que documentan la vida cultural y comunitaria del noroccidente. Registros para volver a esos momentos y compartirlos más allá del lugar y el instante en que sucedieron.</p>
         </Reveal>
       </div>
       <Reveal><CoverageAudioPlayer /></Reveal>
-      <div className="coverage-list">
-        {coverageProjects.map((project, index) => (
-          <Reveal key={project.slug} delay={index * 70}>
-            <CoverageCard project={project} index={index} />
-          </Reveal>
-        ))}
-      </div>
+      {featured ? <Reveal><CoverageCard project={featured} featured /></Reveal> : null}
+      {secondary.length > 0 ? (
+        <div className="coverage-secondary-grid">
+          {secondary.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 80}>
+              <CoverageCard project={project} />
+            </Reveal>
+          ))}
+        </div>
+      ) : null}
       {showArchiveLink ? <div className="coverage-footer-link"><Link className="text-link" href="/memorias/">Explorar el archivo completo</Link></div> : null}
     </div>
   );
