@@ -64,9 +64,9 @@ export default function HomePage() {
             <span className="media-index" aria-hidden="true">01 — MEMORIA</span>
           </Reveal>
         </div>
+        <CoverageShowcase />
       </section>
 
-      <CoverageShowcase />
       <SocialStatsShowcase />
 
       <PinnedReveal>
