@@ -9,5 +9,6 @@ export type CoverageProject = {
   description: string;
   video: string;
   poster: string;
+  audio?: string;
   featured?: boolean;
 };
