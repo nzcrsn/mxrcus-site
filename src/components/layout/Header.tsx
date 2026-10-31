@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
-const links = [["Audiovisual", "/coverage/"], ["Memorias", "/memorias/"], ["Sobre Marcos", "/about/"], ["Contacto", "/contact/"]] as const;
+const links = [["Memorias y Trayectorias", "/memorias/"], ["Sobre Marcos", "/about/"], ["Contacto", "/contact/"]] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
