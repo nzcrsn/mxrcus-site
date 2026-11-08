@@ -10,7 +10,7 @@ export const coverageProjects: CoverageProject[] = [
     type: "Retransmisión en directo · Streaming",
     role: "Dirección · Cámara · Producción en directo",
     description:
-      "Cobertura y transmisión en vivo del Noroccidente Fest 2025, llevando tres días de música, cultura y comunidad más allá del escenario.",
+      "Registro audiovisual de tres días de música, expresiones culturales y encuentros comunitarios. Una cobertura que prolonga la experiencia del festival y la comparte con quienes no pudieron estar allí.",
     video: "/media/video/coberturas/noroccidente-fest-2025.mp4",
     poster: "/media/photography/frames/frame-01.png",
     featured: true
@@ -24,7 +24,7 @@ export const coverageProjects: CoverageProject[] = [
     type: "Retransmisión · Multi-cámara",
     role: "Cámara · Producción · Streaming",
     description:
-      "Diseñado para transmisiones institucionales, culturales y de cara pública donde la cobertura necesita sentirse pulida sin perder la energía del evento.",
+      "Registro multicámara de la actividad ganadera local, sus protagonistas y los encuentros que dan forma a este espacio productivo y comunitario.",
     video: "/media/video/coberturas/exporferis-ganadera-2026.mp4",
     poster: "/media/photography/frames/frame-02.jpg"
   },
@@ -37,7 +37,7 @@ export const coverageProjects: CoverageProject[] = [
     type: "Iniciativa audiovisual · Contenido espontáneo",
     role: "Cámara  · Edición",
     description:
-      "Contenido audiovisual espontáneo para marcas, capturando momentos reales, ideas frescas y situaciones que conectan de forma natural con la audiencia.",
+      "Una pieza para Ego que observa el producto en situaciones cotidianas y construye una historia breve desde gestos y momentos espontáneos.",
     video: "/media/video/coberturas/ego-gel-2026.mp4",
     poster: "/media/photography/frames/frame-03.png"
   }

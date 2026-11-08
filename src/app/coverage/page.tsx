@@ -21,7 +21,7 @@ export default function CoveragePage() {
         <div className="container coverage-archive">
           {coverageProjects.map((project, index) => (
             <Reveal key={project.slug} delay={index * 70}>
-              <CoverageCard project={project} featured={index === 0} />
+              <CoverageCard project={project} index={index} />
             </Reveal>
           ))}
         </div>
